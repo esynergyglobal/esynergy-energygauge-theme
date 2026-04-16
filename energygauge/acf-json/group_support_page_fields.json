@@ -1,0 +1,313 @@
+{
+    "key": "group_support_page_fields",
+    "title": "Support Page Content",
+    "fields": [
+        {
+            "key": "field_support_hero_tab",
+            "label": "Hero Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_support_hero_eyebrow",
+            "label": "Eyebrow Text",
+            "name": "support_hero_eyebrow",
+            "type": "text",
+            "default_value": "Support"
+        },
+        {
+            "key": "field_support_hero_title_pre",
+            "label": "Headline (first part)",
+            "name": "support_hero_title_pre",
+            "type": "text",
+            "default_value": "Get"
+        },
+        {
+            "key": "field_support_hero_title_highlight",
+            "label": "Headline Highlight",
+            "name": "support_hero_title_highlight",
+            "type": "text",
+            "default_value": "Help"
+        },
+        {
+            "key": "field_support_hero_description",
+            "label": "Description",
+            "name": "support_hero_description",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "Free technical support for all licensed EnergyGauge users. Documentation, FAQs, and a direct line to our support team — all in one place."
+        },
+
+        {
+            "key": "field_support_contact_tab",
+            "label": "Contact Card",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_title",
+            "label": "Title",
+            "name": "contact_title",
+            "type": "text",
+            "default_value": "Contact Us"
+        },
+        {
+            "key": "field_contact_description",
+            "label": "Description",
+            "name": "contact_description",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": "",
+            "default_value": "Reach out for licensing questions, technical issues, or general inquiries."
+        },
+        {
+            "key": "field_contact_email",
+            "label": "Email Address",
+            "name": "contact_email",
+            "type": "email",
+            "default_value": "info@esynergyglobal.com"
+        },
+        {
+            "key": "field_contact_button_text",
+            "label": "Button Text",
+            "name": "contact_button_text",
+            "type": "text",
+            "default_value": "Open Support Portal"
+        },
+        {
+            "key": "field_contact_button_url",
+            "label": "Button URL",
+            "name": "contact_button_url",
+            "type": "url",
+            "default_value": "https://support.freshservice.com/support/home"
+        },
+
+        {
+            "key": "field_support_faq_tab",
+            "label": "FAQ",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_faq_section_title",
+            "label": "Section Title",
+            "name": "faq_section_title",
+            "type": "text",
+            "default_value": "Frequently Asked Questions"
+        },
+        {
+            "key": "field_faq_1_q",
+            "label": "FAQ #1 — Question",
+            "name": "faq_1_question",
+            "type": "text",
+            "instructions": "Leave blank to hide this FAQ.",
+            "default_value": "What operating systems does EnergyGauge support?"
+        },
+        {
+            "key": "field_faq_1_a",
+            "label": "FAQ #1 — Answer",
+            "name": "faq_1_answer",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "EnergyGauge Summit is compatible with Microsoft Windows 7 and newer operating systems."
+        },
+        {
+            "key": "field_faq_2_q",
+            "label": "FAQ #2 — Question",
+            "name": "faq_2_question",
+            "type": "text",
+            "instructions": "Leave blank to hide this FAQ.",
+            "default_value": "How does licensing work?"
+        },
+        {
+            "key": "field_faq_2_a",
+            "label": "FAQ #2 — Answer",
+            "name": "faq_2_answer",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "EnergyGauge Summit uses annual single-seat, single-user licensing. Free updates are included during your license period."
+        },
+        {
+            "key": "field_faq_3_q",
+            "label": "FAQ #3 — Question",
+            "name": "faq_3_question",
+            "type": "text",
+            "instructions": "Leave blank to hide this FAQ.",
+            "default_value": "What happened with the FSEC/UCF transition?"
+        },
+        {
+            "key": "field_faq_3_a",
+            "label": "FAQ #3 — Answer",
+            "name": "faq_3_answer",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "EnergyGauge is now managed by eSynergy Global. All existing users remain fully supported. The software continues to operate as normal."
+        },
+        {
+            "key": "field_faq_4_q",
+            "label": "FAQ #4 — Question",
+            "name": "faq_4_question",
+            "type": "text",
+            "instructions": "Leave blank to hide this FAQ.",
+            "default_value": "How do I activate my license?"
+        },
+        {
+            "key": "field_faq_4_a",
+            "label": "FAQ #4 — Answer",
+            "name": "faq_4_answer",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "Visit our support portal for step-by-step activation instructions. You'll need your license key, which is provided after purchase."
+        },
+
+        {
+            "key": "field_support_docs_tab",
+            "label": "Documentation",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_docs_eyebrow",
+            "label": "Eyebrow",
+            "name": "docs_eyebrow",
+            "type": "text",
+            "default_value": "Documentation & Downloads"
+        },
+        {
+            "key": "field_docs_title",
+            "label": "Section Title",
+            "name": "docs_title",
+            "type": "text",
+            "default_value": "Product Documentation"
+        },
+        {
+            "key": "field_docs_version",
+            "label": "Version Label",
+            "name": "docs_version",
+            "type": "text",
+            "instructions": "Shown as a small pill next to the section title (e.g. \"Ver8.1.1\"). Leave blank to hide.",
+            "default_value": "Ver8.1.1"
+        },
+        {
+            "key": "field_docs_notice",
+            "label": "Menu Setup Notice",
+            "name": "",
+            "type": "message",
+            "message": "The actual list of documents below the title is managed via Appearance > Menus. Create a menu, assign it to the \"Support Page Documentation List\" location, and add items — parent items become accordion category headers, child items become document links.",
+            "new_lines": "wpautop"
+        },
+
+        {
+            "key": "field_support_sysreq_tab",
+            "label": "System Requirements",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_sysreq_eyebrow",
+            "label": "Eyebrow",
+            "name": "sysreq_eyebrow",
+            "type": "text",
+            "default_value": "System Requirements"
+        },
+        {
+            "key": "field_sysreq_title",
+            "label": "Section Title",
+            "name": "sysreq_title",
+            "type": "text",
+            "default_value": "Technical specifications"
+        },
+        {
+            "key": "field_sysreq_1_label",
+            "label": "Spec #1 — Label",
+            "name": "sysreq_1_label",
+            "type": "text",
+            "instructions": "Leave label blank to hide this row.",
+            "default_value": "Operating System"
+        },
+        {
+            "key": "field_sysreq_1_value",
+            "label": "Spec #1 — Value",
+            "name": "sysreq_1_value",
+            "type": "text",
+            "default_value": "Windows 7 or newer"
+        },
+        {
+            "key": "field_sysreq_2_label",
+            "label": "Spec #2 — Label",
+            "name": "sysreq_2_label",
+            "type": "text",
+            "default_value": "License Type"
+        },
+        {
+            "key": "field_sysreq_2_value",
+            "label": "Spec #2 — Value",
+            "name": "sysreq_2_value",
+            "type": "text",
+            "default_value": "Single seat, single user"
+        },
+        {
+            "key": "field_sysreq_3_label",
+            "label": "Spec #3 — Label",
+            "name": "sysreq_3_label",
+            "type": "text",
+            "default_value": "Simulation Engine"
+        },
+        {
+            "key": "field_sysreq_3_value",
+            "label": "Spec #3 — Value",
+            "name": "sysreq_3_value",
+            "type": "text",
+            "default_value": "DOE 2.1E (FSEC enhanced)"
+        },
+        {
+            "key": "field_sysreq_4_label",
+            "label": "Spec #4 — Label",
+            "name": "sysreq_4_label",
+            "type": "text",
+            "default_value": "Updates"
+        },
+        {
+            "key": "field_sysreq_4_value",
+            "label": "Spec #4 — Value",
+            "name": "sysreq_4_value",
+            "type": "text",
+            "default_value": "Free during license period"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-support.php"
+            }
+        ],
+        [
+            {
+                "param": "post_name",
+                "operator": "==",
+                "value": "support"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Editable content for the combined Support page (consolidated with the former Resources page). Documentation list itself is managed via Appearance > Menus (Documentation location).",
+    "show_in_rest": 0
+}

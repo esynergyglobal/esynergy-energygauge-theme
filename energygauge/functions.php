@@ -10,7 +10,8 @@ function energygauge_setup() {
     add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption']);
 
     register_nav_menus([
-        'primary' => __('Primary Navigation', 'energygauge'),
+        'primary'       => __('Primary Navigation', 'energygauge'),
+        'documentation' => __('Support Page Documentation List', 'energygauge'),
     ]);
 
     // WooCommerce support
@@ -97,3 +98,107 @@ add_filter('show_admin_bar', '__return_false');
 // Remove default WordPress emoji scripts
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
+
+// 301 redirect /resources/ to /support/ — the two pages were consolidated.
+// Runs before template dispatch so it fires whether or not a page with that
+// slug still exists in the database.
+add_action('template_redirect', function() {
+    $uri = isset($_SERVER['REQUEST_URI']) ? strtok($_SERVER['REQUEST_URI'], '?') : '';
+    $uri = rtrim($uri, '/');
+    if ($uri === '/resources') {
+        wp_redirect(home_url('/support/'), 301);
+        exit;
+    }
+});
+
+// Helper: render the Documentation menu as a nested accordion for the
+// Support page. Top-level items become category headers; their children
+// render as a list of document links inside each expandable panel.
+// Auto-detects a type badge (PDF / CHM / HTM / WEB) from each link's
+// URL extension so the admin doesn't have to specify it manually.
+function eg_render_documentation_menu() {
+    $menu_location = 'documentation';
+    $locations = get_nav_menu_locations();
+    if (empty($locations[$menu_location])) {
+        return; // No menu assigned yet — render nothing.
+    }
+    $menu = wp_get_nav_menu_object($locations[$menu_location]);
+    if (!$menu) return;
+
+    $items = wp_get_nav_menu_items($menu->term_id);
+    if (empty($items)) return;
+
+    // Group into parent => [children...]
+    $top = [];
+    $children = [];
+    foreach ($items as $item) {
+        if (empty($item->menu_item_parent) || $item->menu_item_parent === '0') {
+            $top[$item->ID] = $item;
+        } else {
+            $children[$item->menu_item_parent][] = $item;
+        }
+    }
+
+    foreach ($top as $parent) {
+        $kids = isset($children[$parent->ID]) ? $children[$parent->ID] : [];
+
+        // Parent with no children → render as a single standalone link.
+        if (empty($kids)) {
+            $url = esc_url($parent->url ?: '#');
+            $title = esc_html($parent->title);
+            echo '<a href="' . $url . '" target="_blank" rel="noopener" class="kb-doc" style="max-width:none;margin-bottom:12px;">';
+            echo '  <div class="kb-doc-left">';
+            echo '    <span class="type-badge ' . esc_attr(eg_doc_type_class($parent->url)) . '">' . esc_html(eg_doc_type_label($parent->url)) . '</span>';
+            echo '    <span class="kb-doc-name">' . $title . '</span>';
+            echo '  </div>';
+            echo '  <div class="kb-doc-right"><span class="kb-doc-arrow">&nearr;</span></div>';
+            echo '</a>';
+            continue;
+        }
+
+        // Parent with children → accordion section.
+        $count = count($kids);
+        $desc = !empty($parent->description) ? $parent->description : '';
+        echo '<div class="kb-section">';
+        echo '  <div class="kb-header" role="button" tabindex="0">';
+        echo '    <div style="display:flex;align-items:center;">';
+        echo '      <span class="kb-folder">' . esc_html($parent->title) . '</span>';
+        if ($desc) echo '      <span class="kb-desc">' . esc_html($desc) . '</span>';
+        echo '    </div>';
+        echo '    <div style="display:flex;align-items:center;">';
+        echo '      <span class="kb-count">' . (int) $count . ' item' . ($count === 1 ? '' : 's') . '</span>';
+        echo '      <span class="kb-toggle">+</span>';
+        echo '    </div>';
+        echo '  </div>';
+        echo '  <div class="kb-body"><div class="kb-body-inner">';
+        foreach ($kids as $k) {
+            $url = esc_url($k->url ?: '#');
+            echo '<a href="' . $url . '" target="_blank" rel="noopener" class="kb-doc">';
+            echo '  <div class="kb-doc-left">';
+            echo '    <span class="type-badge ' . esc_attr(eg_doc_type_class($k->url)) . '">' . esc_html(eg_doc_type_label($k->url)) . '</span>';
+            echo '    <span class="kb-doc-name">' . esc_html($k->title) . '</span>';
+            echo '  </div>';
+            echo '  <div class="kb-doc-right"><span class="kb-doc-arrow">&nearr;</span></div>';
+            echo '</a>';
+        }
+        echo '  </div></div>';
+        echo '</div>';
+    }
+}
+
+function eg_doc_type_label($url) {
+    $ext = strtolower(pathinfo(parse_url($url, PHP_URL_PATH) ?: '', PATHINFO_EXTENSION));
+    switch ($ext) {
+        case 'pdf': return 'PDF';
+        case 'chm': return 'CHM';
+        case 'htm': case 'html': return 'HTM';
+        case 'doc': case 'docx': return 'DOC';
+        case 'zip': return 'ZIP';
+        default:    return 'WEB';
+    }
+}
+
+function eg_doc_type_class($url) {
+    $label = strtolower(eg_doc_type_label($url));
+    return 'type-' . $label;
+}

@@ -22,8 +22,7 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="<?php echo home_url('/summit/'); ?>" class="<?php echo is_page('summit') ? 'active' : ''; ?>">Summit</a></li>
-      <li><a href="<?php echo home_url('/resources/'); ?>" class="<?php echo is_page('resources') ? 'active' : ''; ?>">Resources</a></li>
+      <li><a href="<?php echo home_url('/summit/'); ?>" class="<?php echo is_page('summit') || is_front_page() ? 'active' : ''; ?>">Summit</a></li>
       <li><a href="<?php echo home_url('/support/'); ?>" class="<?php echo is_page('support') ? 'active' : ''; ?>">Support</a></li>
       <li><a href="<?php echo home_url('/cart/'); ?>" class="nav-cart" aria-label="View Cart">&#128722;</a></li>
       <li><a href="<?php echo home_url('/summit/'); ?>" class="nav-cta">Buy Now</a></li>

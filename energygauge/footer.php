@@ -21,10 +21,11 @@
         </ul>
       </div>
       <div>
-        <h4>Resources</h4>
+        <h4>Support</h4>
         <ul>
-          <li><a href="<?php echo home_url('/resources/'); ?>">Knowledge Base</a></li>
-          <li><a href="<?php echo home_url('/resources/'); ?>">Submit a Ticket</a></li>
+          <li><a href="<?php echo home_url('/support/'); ?>">Documentation</a></li>
+          <li><a href="<?php echo home_url('/support/'); ?>">FAQ</a></li>
+          <li><a href="<?php echo home_url('/support/'); ?>">Submit a Ticket</a></li>
         </ul>
       </div>
       <div>
