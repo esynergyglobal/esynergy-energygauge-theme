@@ -1,54 +1,91 @@
-<?php /* Template Name: Summit */ ?>
-<?php
-get_header();
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summit — EnergyGauge (Preview)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+  /* Preview-only banner so you know this is a mockup */
+  .preview-strip {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: #F5A623; color: #0B1426;
+    font: 600 12px/1 'DM Sans', sans-serif;
+    padding: 6px 16px; z-index: 9999; text-align: center;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  body { padding-top: 28px; }
+</style>
+</head>
+<body class="page page-template-summit">
+<div class="preview-strip">Preview — Summit Page (static render, not live WordPress)</div>
 
-// Feature card images (bundled in the theme at assets/images/features/).
-$img_base = get_template_directory_uri() . '/assets/images/features';
-?>
+<!-- NAV -->
+<div class="nav-wrap">
+  <nav class="nav">
+    <a href="#" class="nav-brand">
+      <div class="nav-logo-mark">eG</div>
+      <div class="nav-brand-text">
+        <span class="nav-brand-primary">EnergyGauge</span>
+        <span class="nav-brand-sub">by eSynergy Global</span>
+      </div>
+    </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Summit</a></li>
+      <li><a href="#">Resources</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#" class="nav-cart" aria-label="View Cart">&#128722;</a></li>
+      <li><a href="#" class="nav-cta">Buy Now</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- BANNER -->
+<div class="transition-banner" id="transitionBanner">
+  <div class="transition-banner-inner">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <span class="badge-new">New</span>
+      <p>EnergyGauge is now managed by <strong>eSynergy Global</strong>. All existing users remain fully supported. New purchases and renewals are available. <a href="mailto:info@esynergyglobal.com">Contact us</a></p>
+    </div>
+    <button class="banner-dismiss" onclick="this.closest('.transition-banner').style.display='none'" aria-label="Dismiss banner">&times;</button>
+  </div>
+</div>
+
+<main>
 
 <!-- HERO -->
 <section class="hero animate-fade-up" style="padding:96px 24px 56px;">
   <div class="hero-inner">
-    <div class="hero-eyebrow"><?php echo esc_html(eg_field('summit_hero_eyebrow', 'Commercial Buildings')); ?></div>
-    <h1 style="font-size:clamp(32px,4vw,52px);"><?php echo esc_html(eg_field('summit_hero_title_pre', 'EnergyGauge')); ?> <span><?php echo esc_html(eg_field('summit_hero_title_highlight', 'Summit')); ?></span></h1>
-    <p class="hero-sub"><?php echo esc_html(eg_field('summit_hero_description', 'Easy-to-use software for Building Energy Code Compliance, Energy Analysis, and Rating. Available in two versions — FlaCom and Premier. Choose the product that best fits your compliance needs using the comparison below.')); ?></p>
+    <div class="hero-eyebrow">Commercial Buildings</div>
+    <h1 style="font-size:clamp(32px,4vw,52px);">EnergyGauge <span>Summit</span></h1>
+    <p class="hero-sub">Easy-to-use software for Building Energy Code Compliance, Energy Analysis, and Rating. Available in two versions — FlaCom and Premier. Choose the product that best fits your compliance needs using the comparison below.</p>
   </div>
 </section>
 
-<!-- PRICING CARDS — shown above the comparison so visitors can buy immediately -->
+<!-- PRICING CARDS -->
 <section class="section section-pricing animate-fade-up" style="padding:24px 24px 16px;">
   <div class="section-inner">
-    <?php
-    $flacom_price       = eg_field('flacom_price', '$389');
-    $flacom_period      = eg_field('flacom_period', '1-year license only');
-    $flacom_buy_url     = eg_field('flacom_buy_url', home_url('/product/energygauge-summit-flacom/'));
-
-    $premier_original   = eg_field('premier_original_price', '$949');
-    $premier_sale       = eg_field('premier_sale_price', '$799');
-    $premier_period     = eg_field('premier_period', '1-year license (promo)');
-    $premier_3yr_orig   = eg_field('premier_3yr_original', '$2,562');
-    $premier_3yr_sale   = eg_field('premier_3yr_sale', '$2,157');
-    $premier_buy_url    = eg_field('premier_buy_url', home_url('/product/energygauge-summit-premier/'));
-    ?>
     <div class="pricing-grid">
       <div class="price-card">
         <h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin-bottom:8px;">FlaCom</h3>
-        <div class="price-amount"><?php echo esc_html($flacom_price); ?></div>
-        <div class="price-period" style="margin-bottom:16px;"><?php echo esc_html($flacom_period); ?></div>
-        <a class="btn btn-amber btn-sm" href="<?php echo esc_url($flacom_buy_url); ?>">Buy FlaCom</a>
+        <div class="price-amount">$389</div>
+        <div class="price-period" style="margin-bottom:16px;">1-year license only</div>
+        <a class="btn btn-amber btn-sm" href="#">Buy FlaCom</a>
       </div>
       <div class="price-card recommended">
         <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--teal);font-weight:600;text-transform:uppercase;margin-bottom:8px;">RECOMMENDED</div>
         <h3 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin-bottom:8px;">Premier</h3>
-        <?php if ($premier_original) : ?>
-          <div style="text-decoration:line-through;color:var(--gray-400);font-size:14px;"><?php echo esc_html($premier_original); ?></div>
-        <?php endif; ?>
-        <div class="price-amount" style="color:var(--teal-dim);"><?php echo esc_html($premier_sale); ?></div>
-        <div class="price-period"><?php echo esc_html($premier_period); ?></div>
+        <div style="text-decoration:line-through;color:var(--gray-400);font-size:14px;">$949</div>
+        <div class="price-amount" style="color:var(--teal-dim);">$799</div>
+        <div class="price-period">1-year license (promo)</div>
         <div style="font-family:var(--font-mono);font-size:13px;color:var(--gray-600);margin-bottom:16px;">
-          <?php if ($premier_3yr_orig) : ?><s style="color:var(--gray-400);"><?php echo esc_html($premier_3yr_orig); ?></s> <?php endif; ?><?php echo esc_html($premier_3yr_sale); ?> / 3-year
+          <s style="color:var(--gray-400);">$2,562</s> $2,157 / 3-year
         </div>
-        <a class="btn btn-primary btn-sm" href="<?php echo esc_url($premier_buy_url); ?>">Buy Premier</a>
+        <a class="btn btn-primary btn-sm" href="#">Buy Premier</a>
       </div>
     </div>
 
@@ -213,7 +250,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
     <br>
     <div class="features-grid animate-fade-up">
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/florida-energy-code.jpg'); ?>" alt="Florida Energy Conservation Code" loading="lazy">
+        <img class="feature-card-image" src="../assets/images/features/florida-energy-code.jpg" alt="Florida Energy Conservation Code" loading="lazy">
         <h4>Florida Energy Code (2023 8th Ed &amp; 2020 7th Ed)</h4>
         <ul>
           <li>ASHRAE Energy Cost Budget Option</li>
@@ -226,7 +263,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         <p style="font-size:12px;color:var(--gray-400);margin-top:12px;"><sup>&dagger;</sup> Not available in 2020 (7th ed)</p>
       </div>
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/one-button-compliance.jpg'); ?>" alt="One-button compliance calculation" loading="lazy">
+        <img class="feature-card-image" src="../assets/images/features/one-button-compliance.jpg" alt="One-button compliance calculation" loading="lazy">
         <h4>One Button Compliance</h4>
         <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Automatically generates reference and baseline buildings.</p>
         <ul>
@@ -239,7 +276,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         </ul>
       </div>
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/leed-certified.png'); ?>" alt="LEED Certified" loading="lazy">
+        <img class="feature-card-image" src="../assets/images/features/leed-certified.png" alt="LEED Certified" loading="lazy">
         <h4>LEED Building Certification</h4>
         <ul>
           <li>Minimum Energy Performance credit</li>
@@ -248,7 +285,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         </ul>
       </div>
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/tax-credits.png'); ?>" alt="Energy efficient tax credits" loading="lazy">
+        <img class="feature-card-image" src="../assets/images/features/tax-credits.png" alt="Energy efficient tax credits" loading="lazy">
         <h4>Energy Efficient Tax Credit</h4>
         <ul>
           <li>Partial Credit for Lighting</li>
@@ -258,7 +295,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         </ul>
       </div>
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/iecc.png'); ?>" alt="International Energy Conservation Code" loading="lazy">
+        <img class="feature-card-image" src="../assets/images/features/iecc.png" alt="International Energy Conservation Code" loading="lazy">
         <h4>IECC Compliance</h4>
         <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Enter your building and comply with either method:</p>
         <ul>
@@ -267,7 +304,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         </ul>
       </div>
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/ashrae-logo.png'); ?>" alt="ASHRAE Standard 90.1" loading="lazy">
+        <img class="feature-card-image" src="../assets/images/features/ashrae-logo.png" alt="ASHRAE Standard 90.1" loading="lazy">
         <h4>ASHRAE Standard 90.1</h4>
         <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Comply with any of three methods:</p>
         <ul>
@@ -277,7 +314,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         </ul>
       </div>
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/libraries.png'); ?>" alt="Predefined libraries" loading="lazy">
+        <img class="feature-card-image" src="../assets/images/features/libraries.png" alt="Predefined libraries" loading="lazy">
         <h4>Predefined &amp; Customizable Libraries</h4>
         <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Save time, or create your own:</p>
         <ul>
@@ -288,7 +325,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         </ul>
       </div>
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/tech-support.png'); ?>" alt="Free technical support" loading="lazy">
+        <img class="feature-card-image" src="../assets/images/features/tech-support.png" alt="Free technical support" loading="lazy">
         <h4>Free Technical Support</h4>
         <ul>
           <li>Online, ticket, and email support</li>
@@ -296,10 +333,60 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
           <li>Free online video tutorials</li>
           <li>No-cost updates during license period</li>
         </ul>
-        <a class="btn btn-outline btn-sm" href="<?php echo esc_url(home_url('/support/')); ?>" style="margin-top:12px;">Get Support</a>
+        <a class="btn btn-outline btn-sm" href="#" style="margin-top:12px;">Get Support</a>
       </div>
     </div>
   </div>
 </section>
 
-<?php get_footer(); ?>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-brand">
+          <div class="nav-logo-mark">eG</div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-primary">EnergyGauge</span>
+            <span class="nav-brand-sub">by eSynergy Global</span>
+          </div>
+        </a>
+        <p>Building energy simulation software for code compliance, energy analysis, and rating. Developed by UCF's Florida Solar Energy Center.</p>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#">Summit &mdash; Commercial</a></li>
+          <li><a href="#">Buy Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Knowledge Base</a></li>
+          <li><a href="#">Submit a Ticket</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://esynergyglobal.com" target="_blank" rel="noopener noreferrer">eSynergy Global</a></li>
+          <li><a href="mailto:info@esynergyglobal.com">Contact</a></li>
+          <li><a href="https://www.ucf.edu/internet-privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+          <li><a href="#">EULA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 eSynergy Global. EnergyGauge was developed by the University of Central Florida's Florida Solar Energy Center.</p>
+      <div class="footer-partners">
+        <span>EPA ENERGY STAR</span>
+        <span>DOE Building America</span>
+        <span>RESNET</span>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

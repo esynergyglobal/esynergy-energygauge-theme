@@ -518,6 +518,20 @@ img {
   background: rgba(255, 255, 255, 0.14);
 }
 
+/* Outline button — for use on LIGHT backgrounds (feature cards, banners)
+   where btn-secondary's white-on-transparent styling would be invisible. */
+.btn-outline {
+  background: transparent;
+  color: var(--gray-800);
+  border: 1px solid var(--gray-200);
+}
+
+.btn-outline:hover {
+  background: var(--gray-800);
+  color: var(--white);
+  border-color: var(--gray-800);
+}
+
 .btn-amber {
   background: var(--amber);
   color: var(--navy);
