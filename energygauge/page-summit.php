@@ -1,8 +1,35 @@
 <?php /* Template Name: Summit */ ?>
-<?php get_header(); ?>
+<?php
+get_header();
+
+// Feature card images (bundled in the theme at assets/images/features/).
+$img_base = get_template_directory_uri() . '/assets/images/features';
+?>
+
+<!-- RELEASE ANNOUNCEMENT BANNER -->
+<section class="release-banner animate-fade-up" style="padding:96px 24px 0;">
+  <div class="release-banner-inner">
+    <div class="release-banner-content">
+      <span class="badge-new" style="margin-bottom:12px;">Latest Release</span>
+      <h2 style="font-family:var(--font-display);font-weight:700;font-size:24px;margin:0 0 8px;color:var(--gray-800);">
+        EnergyGauge Summit v8.1.1 Available Now
+      </h2>
+      <p style="margin:0 0 16px;color:var(--gray-600);line-height:1.6;">
+        Now including the 2023 (8th Edition) Florida Energy Conservation Code compliance options.
+      </p>
+      <div class="release-banner-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a class="btn btn-primary btn-sm" href="https://support.energygauge.com/support/solutions/articles/5000686389-latest-energygauge-summit-version" target="_blank" rel="noopener">Download Latest Version</a>
+        <a class="btn btn-secondary btn-sm" href="<?php echo esc_url(eg_docs_url('summit/ReleaseNotes/ReleaseNotesSummit.pdf')); ?>" target="_blank" rel="noopener">Release Notes (PDF)</a>
+      </div>
+    </div>
+    <div class="release-banner-image">
+      <img src="<?php echo esc_url($img_base . '/florida-energy-code.jpg'); ?>" alt="2023 Florida Energy Conservation Code 8th Edition">
+    </div>
+  </div>
+</section>
 
 <!-- HERO -->
-<section class="hero animate-fade-up" style="padding:80px 24px 60px;">
+<section class="hero animate-fade-up" style="padding:48px 24px 60px;">
   <div class="hero-inner">
     <div class="hero-eyebrow"><?php echo esc_html(eg_field('summit_hero_eyebrow', 'Commercial Buildings')); ?></div>
     <h1 style="font-size:clamp(32px,4vw,52px);"><?php echo esc_html(eg_field('summit_hero_title_pre', 'EnergyGauge')); ?> <span><?php echo esc_html(eg_field('summit_hero_title_highlight', 'Summit')); ?></span></h1>
@@ -113,6 +140,22 @@
       </div>
     </div>
 
+    <!-- PRODUCT DEMO VIDEO -->
+    <div class="video-section animate-fade-up" style="margin-top:64px;">
+      <div class="section-eyebrow">See It In Action</div>
+      <h2 class="section-title">EnergyGauge Summit Demo</h2>
+      <div class="video-embed">
+        <iframe
+          src="https://player.vimeo.com/video/29380350"
+          title="EnergyGauge Summit demo"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
     <!-- COMPETITIVE COMPARISON -->
     <div class="section-eyebrow animate-fade-up" style="margin-top:64px;">Why EnergyGauge</div>
     <h2 class="section-title">Compare to the Competition</h2>
@@ -190,7 +233,7 @@
     <br>
     <div class="features-grid animate-fade-up">
       <div class="feature-card">
-        <div class="feature-card-icon">&#128203;</div>
+        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/florida-energy-code.jpg'); ?>" alt="Florida Energy Conservation Code" loading="lazy">
         <h4>Florida Energy Code (2023 8th Ed &amp; 2020 7th Ed)</h4>
         <ul>
           <li>ASHRAE Energy Cost Budget Option</li>
@@ -203,10 +246,10 @@
         <p style="font-size:12px;color:var(--gray-400);margin-top:12px;"><sup>&dagger;</sup> Not available in 2020 (7th ed)</p>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">&#9889;</div>
+        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/one-button-compliance.jpg'); ?>" alt="One-button compliance calculation" loading="lazy">
         <h4>One Button Compliance</h4>
+        <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Automatically generates reference and baseline buildings.</p>
         <ul>
-          <li>Auto-generates reference &amp; baseline buildings</li>
           <li>Florida Energy Conservation Code (7th &amp; 8th Ed)</li>
           <li>IECC (2018, 2015, 2012)</li>
           <li>LEED (v4.0, v2009)</li>
@@ -216,7 +259,7 @@
         </ul>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">&#127941;</div>
+        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/leed-certified.png'); ?>" alt="LEED Certified" loading="lazy">
         <h4>LEED Building Certification</h4>
         <ul>
           <li>Minimum Energy Performance credit</li>
@@ -225,7 +268,7 @@
         </ul>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">&#128176;</div>
+        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/tax-credits.png'); ?>" alt="Energy efficient tax credits" loading="lazy">
         <h4>Energy Efficient Tax Credit</h4>
         <ul>
           <li>Partial Credit for Lighting</li>
@@ -235,16 +278,18 @@
         </ul>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">&#127970;</div>
+        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/iecc.png'); ?>" alt="International Energy Conservation Code" loading="lazy">
         <h4>IECC Compliance</h4>
+        <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Enter your building and comply with either method:</p>
         <ul>
           <li>Prescriptive Building Option (2018, 2012, 2009)</li>
           <li>Total Building Performance Method (2018, 2012, 2009)</li>
         </ul>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">&#128208;</div>
+        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/ashrae-logo.png'); ?>" alt="ASHRAE Standard 90.1" loading="lazy">
         <h4>ASHRAE Standard 90.1</h4>
+        <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Comply with any of three methods:</p>
         <ul>
           <li>ECB Option (2007, 2010, 2013, 2016)</li>
           <li>Prescriptive Option (2007, 2010, 2013, 2016)</li>
@@ -252,8 +297,9 @@
         </ul>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">&#128218;</div>
+        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/libraries.png'); ?>" alt="Predefined libraries" loading="lazy">
         <h4>Predefined &amp; Customizable Libraries</h4>
+        <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Save time, or create your own:</p>
         <ul>
           <li>Building materials</li>
           <li>Constructs (walls, roof, floors)</li>
@@ -262,7 +308,7 @@
         </ul>
       </div>
       <div class="feature-card">
-        <div class="feature-card-icon">&#128735;</div>
+        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/tech-support.png'); ?>" alt="Free technical support" loading="lazy">
         <h4>Free Technical Support</h4>
         <ul>
           <li>Online, ticket, and email support</li>
@@ -270,6 +316,7 @@
           <li>Free online video tutorials</li>
           <li>No-cost updates during license period</li>
         </ul>
+        <a class="btn btn-secondary btn-sm" href="<?php echo esc_url(home_url('/support/')); ?>" style="margin-top:12px;">Get Support</a>
       </div>
     </div>
   </div>
