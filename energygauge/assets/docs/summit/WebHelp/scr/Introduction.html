@@ -1,0 +1,150 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<HTML><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META NAME="keywords" CONTENT="">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<title>Introduction</title>
+<META NAME="GENERATOR" CONTENT="ForeHTML Pro 3.0">
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="EnergyGauge_FlaCom_Help.css">
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="FHNonscroll.js">
+
+</SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="FHUtilities.js">
+
+</SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="FHFlyoverPopups.js">
+
+</SCRIPT>
+
+<!--ForeHelp.Ignore-->
+<SCRIPT SRC="sniffer.js"></SCRIPT>
+<SCRIPT SRC="hhscript.js"></SCRIPT>
+<SCRIPT SRC="fh_dhtml.js"></SCRIPT>
+<!--ForeHelp.EndIgnore-->
+</HEAD>
+
+<body BGCOLOR=#ffffff SCROLL="no"><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(2);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../index.htm?page=Introduction.html";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0">
+<TR><TD WIDTH="100%">
+<DIV ID="FHNonScroll">
+<DIV><B><U><SPAN  STYLE="font-size: 18pt ; font-family: Arial,sans-serif; ">Introduction</SPAN></U></B></TD><TD WIDTH="120" ALIGN="RIGHT" NOWRAP><!--ForeHelp.Hotspot JUMP="energygauge_flacom"--><!--ForeHelp.EndHotspot--><A HREF="EnergyGauge_FlaCom.html"><SPAN  STYLE="font-size: 10pt ; font-family: Verdana,sans-serif; "><IMG SRC="BrowseBlueLeft.png" WIDTH="20" HEIGHT="20" ALIGN="BASELINE" BORDER="0" ALT="Previous Topic"></SPAN></A><SPAN  STYLE="font-size: 10pt ; font-family: Verdana,sans-serif; ">  </SPAN><!--ForeHelp.Hotspot JUMP="navigation_tree"--><!--ForeHelp.EndHotspot--><A HREF="Navigation_Tree.html"><SPAN  STYLE="font-size: 10pt ; font-family: Verdana,sans-serif; "><IMG SRC="BrowseBlueRight.png" WIDTH="20" HEIGHT="20" ALIGN="BASELINE" BORDER="0" ALT="Next Topic"></SPAN></A><SPAN  STYLE="font-size: 10pt ; font-family: Verdana,sans-serif; "> </SPAN></TD></TR></TABLE>
+
+<DIV ID="FHScroll">
+<P><B><U>Project Hierarchy</U></B></P>
+<P>A fundamental concept in EnergyGauge Summit is that it structures the building into a hierarchical collection of elements. For example, a building (sometimes referred to as Project) consists of multiple Zones which in turn may contain many Spaces, Walls, Floors, Roofs etc. Walls can further contain multiple Windows and Doors. The figure demonstrates the concept.</P>
+<P><IMG SRC="ProjectLayout.jpg" WIDTH="716" HEIGHT="536" ALIGN="BASELINE" ALT="ProjectLayout.jpg" BORDER="0"></P>
+<P>In the illustration, the Project is composed of  the building, systems and the plant.</P>
+<P>The project has a PLANT, that may include chillers and/or boilers that are served by the utility and/or other fuel sources.</P>
+<P>The project has two systems, Sy1 and Sy2</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">System Sy1 is served by the PLANT</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">System Sy2 is a packaged system type that is served directly by the utility.</P>
+<P>The building consists of three zones: Zo1; Zo2; and Zo3.  (A Zone is a unit of a building in which the air is assumed to be well mixed and where the temperature can be assumed to be uniform)</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">System Sy1 serves the following Zones: Zo1 and Zo2</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">System Sy2 serves only Zone Zo3</P>
+<P>Zone Zo1 consists of five spaces of various sizes: Sp1; Sp2; Sp3; Sp4; and Sp5.  The sum of the areas and volumes of the five spaces constitute the area and volume of Zo1. (A space is a portion of a Zone having a distinct internal load characteristic, such as Lighting and Equipment loads)</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">Zone Zo1 has two exterior walls: Zo1Wa1 (west) and Zo1Wa2 (north).</P>
+<P>Zone Zo2 has two exterior walls: Zo2Wa1 (north) and Zo2Wa2 (East), and a partition wall Zo2Wa3 that is next to Zone Zo1.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">The east wall Zo2Wa2 in zone Zo2 contains a window Zo2Wa2Wi1. The orientation of windows need not be specified. It is inherited from the wall on which it is mounted.</P>
+<P>Zone Zo3 has three exterior walls namely Zo3Wa1 (west), Zo3Wa2 (south), and Zo3Wa3 (east).</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">Zone Zo3 has two partition walls: Zo3Wa4 which is next to Zone Zo1 and another Zo3Wa5 that is next to zone Zo2.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">The south wall Zo3Wa2 in zone Zo3 contains a door Zo3Wa2Dr1. The orientation of door need not be specified. It is inherited from the wall on which it is mounted.</P>
+<P> </P>
+<P><B><U>Materials and Constructs - Introductory Concepts</U></B></P>
+<P>Unlike prior DOS versions of Summit where choices for construct (or envelope types) were mostly limited to prebuilt Wall or Roof types, EnergyGauge Summit gives the user virtually unlimited choices.  First, the software provides the user with an extensive list of constructs for walls, roofs and floors.  Second, the user has the option of creating their own constructs and using them repeatedly.  Therefore an understanding of the basics behind constructs is crucial in being able to use the software effectively.</P>
+<P><IMG SRC="CONSTCOMPOSITION.jpg" WIDTH="714" HEIGHT="818" ALIGN="BASELINE" ALT="CONSTCOMPOSITION.jpg" BORDER="0"></P>
+<P>A building may contain several envelope units such as walls, roofs and floors.</P>
+<P>Each envelope unit has associated dimensions (such as width and height) and a construct.</P>
+<P>The construct specifies the physical make up of the envelope unit.</P>
+<P>More than one envelope unit can have the same construct.  Therefore, once a construct is developed or included in a project, it can be used to specify the make up of several envelope units.</P>
+<P>A construct consists of one or more layers that make up the construct, except for a simple construct where layers do not exist and gross properties of the construct are used in the calculations</P>
+<P>Each layer is a slice of the construct that has distinct characteristics that include the material it is made of, thickness and framing factor (if any).</P>
+<P>The aggregate of each property of the layers constitutes the overall property of the construct. For example, the sum of the thickness of the layers is the total thickness of the construct.</P>
+<P>Each layer must be associated with a material that must exist prior to building a construct.</P>
+<P>A material has specific detailed thermal properties such as conductivity, density, specific heat and thickness. Alternatively, in lieu of these properties one can specify only the R-Value in which case the material is assumed to be massless.</P>
+<P>For details on how to build constructs, see the section on Project Materials and Constructs</P>
+<P> </P>
+<P><B><U>Project</U></B></P>
+<P><I>What is a project?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">A project is your building input containing components such as zones, walls etc. When saved, the file has an extension .egc</P>
+<P><I>Create a new project?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">You can open a project using the '<B>New</B>' tool button or from the '<B>File</B>' &gt; '<B>New</B>'  menu.</P>
+<P><I>Open an existing project?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">You can open a project using the '<B>Open</B>' tool button or from the '<B>File</B>' &gt; '<B>Open</B>'  menu.</P>
+<P> </P>
+<P><B><U>Templates</U></B></P>
+<P><I>What is a template?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">A template is a file with preset information that can be used as a starting point for a new project. Templates contain preset project and resource information such as constructs, materials and fenestrations. Users may create and save as many templates as they need, and choose any template to create a new Project.  Creating new projects from templates can save considerable time, especially if constructs, materials and fenestrations that are often used are saved in a template for repeated use.  In addition, the user can also set the default fenestrations envelope constructs.</P>
+<P><I>Create a template?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">From the main menu, Click '<B>File</B>' &gt; '<B>New</B>' &gt;'<B>Template</B>'.  Make your modifications and save it.</P>
+<P><I>Modify an existing template?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">Click 'Open'. Then select a template (a file with .EGT extension) from the open dialog.  Make your modifications and save it.</P>
+<P><I>Create a new project using templates?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">1. A template file must first exist.  If not, create one.  Or use the sample template provided with the software.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">2. Click '<B>File</B>' &gt; '<B>New</B>' &gt; '<B>Project from Template</B>'.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">3.  Select a template (a file with .EGT extension) from the open dialog.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">4. This creates a new project based on the selected template.</P>
+<P><I>How do I know if I have opened a template or a project file?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">A Project will have a Project Explorer (tree). A template does not have an explorer (tree). In addition, the form layout will be significantly different for each. See the figure below for an example of a template layout.</P>
+<P><IMG SRC="Template.JPG" WIDTH="854" HEIGHT="721" ALIGN="BASELINE" ALT="Template.JPG" BORDER="0"></P>
+<P>To modify Fenestrations in the template click '<B>Tmpl Fenestrations</B>' button located on the right.  Make your modifications. An alternate access is through the main menu. Click '<B>Edit</B>' &gt; '<B>Template Fenestrations</B>'.</P>
+<P>To modify Materials and Constructs in the template click '<B>Tmpl Materials and Constructs</B>' button located on the right.  Make your modifications. See the section onMaterials and Constructs Library for editing functions. An alternate access is through the main menu. Click '<B>Edit</B>' &gt; '<B>Template Materials and Constructs</B>'.</P>
+<P>To set or modify preferences, in the main menu click '<B>Edit</B>' &gt; '<B>Template Preferences</B>'.  and make your modifications.</P>
+<P> </P>
+<P><B><U>Master Library</U></B></P>
+<P><I>What is the Master Library?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">The Master Library contains extensive resources on materials, fenestration and constructs. It serves as a repository from which you can draw into your individual project or template.  Users cannot change information contained in the master library.</P>
+<P><I>Accessing the Master Library</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">From the main menu, click  '<B>Resources</B>'  --&gt;  '<B>Master Library</B>' .  Then click the library component you want to open.</P>
+<P><B>Note:</B> The Master Library can be accessed even if a  project is not open.</P>
+<P> </P>
+<P><B><U>Project Library</U></B></P>
+<P><I>What is a Project Library?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">The project library is similar to the master library but unlike the Master Library is associated with a specific project and provides resources for the project. Each project has its own project library.  Project Libraries may be edited.</P>
+<P><I>Accessing the Project Library</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">First, a project must be open. You can access the Project Library by selecting the &quot;<B>Prj Resources</B>&quot; tab of the project explorer and then clicking the library button you want access. Alternatively, you can access it from the main menu. To do this from the main menu click  '<B>Edit</B>' . Then click the project library component you want to open.</P>
+<P><B>Note:</B> The project library can be accessed only if a project is open.</P>
+<P> </P>
+<P><B><U>Miscellaneous</U></B></P>
+<P><I>Some fields may be inactive, why?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">Some fields are intentionally kept inactive or not editable.  They usually represent the defaults used in calculations and are not user-editable.</P>
+<P><I>What are tool tips?  How do I get tool tips displayed?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">In general, if you hover the mouse on any (non grid) field on any form, a tool tip appears giving more information about that field, such as data ranges and units.</P>
+<P><I>What are the units of the various data?</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">Units are not written on the forms. Use the tool tip feature above to check input units.</P>
+<P><B><SPAN  STYLE="font-size: 14pt ; color: #ff0000; ">Important note:</SPAN></B></P>
+<P><B><SPAN  STYLE="font-size: 14pt ; color: #ff0000; ">You must tab out of the field you are editing (or move to another field and click the mouse) before the change will take effect. If you switch screens or choose to calculate or save without first moving to another field, the change will not be saved or included in the calculation.</SPAN></B></P>
+<P> </P>
+<P><B><U>General Layout</U></B></P>
+<P>Upon starting EnergyGauge Summit, the following window comes up.</P>
+<P><IMG SRC="startpage.JPG" WIDTH="850" HEIGHT="624" ALIGN="BASELINE" ALT="startpage.JPG" BORDER="0"></P>
+<P>To create a new project click the '<B>New</B>' tool button.</P>
+<P>To open and  work on an existing project, click the '<B>Open</B>' tool button.</P>
+<P>You can also open an existing or new project from the '<B>File</B>' menu.</P>
+<P>If you require help, click on the '<B>Help Contents</B>' button or use the '<B>Help</B>' from the main menu.</P>
+<P> </P>
+<P><!--ForeHelp.Hotspot JUMP="energygauge_flacom"--><!--ForeHelp.EndHotspot--><A HREF="EnergyGauge_FlaCom.html"><IMG SRC="HOME.jpg" WIDTH="28" HEIGHT="33" ALIGN="BASELINE" ALT="HOME.jpg" BORDER="0"></A></P></DIV></DIV></DIV>
+</BODY></HTML>

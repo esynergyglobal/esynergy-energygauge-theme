@@ -1,0 +1,89 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<HTML><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META NAME="keywords" CONTENT="">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<title>Project Materials and Constructs Library Form</title>
+<META NAME="GENERATOR" CONTENT="ForeHTML Pro 3.0">
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="EnergyGauge_FlaCom_Help.css">
+<!--ForeHelp.Ignore-->
+<SCRIPT SRC="sniffer.js"></SCRIPT>
+<SCRIPT SRC="hhscript.js"></SCRIPT>
+<SCRIPT SRC="fh_dhtml.js"></SCRIPT>
+<!--ForeHelp.EndIgnore-->
+</HEAD>
+
+<body><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(40);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../index.htm?page=Project_Materials_and_Const.htm";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<TABLE CELLPADDING="2" CELLSPACING="2">
+<TR><TD WIDTH="965"><B><U><SPAN  STYLE="font-size: 18pt ; font-family: Arial,sans-serif; ">Project Materials and Constructs Library Form</SPAN></U></B></TD><TD WIDTH="192">
+<P CLASS="Base" STYLE="font-size: 10pt ; text-align: right; margin: 0pt  0.014in  0pt  0pt ; font-family: Arial,sans-serif; "><!--ForeHelp.Hotspot JUMP="project_fenestrations_libra"--><!--ForeHelp.EndHotspot--><A HREF="Project_Fenestrations_Libra.htm"><IMG SRC="BrowseBlueRight.png" WIDTH="20" HEIGHT="20" ALIGN="BASELINE" ALT="BrowseBlueRight.png" BORDER="0"></A></P></TD></TR></TABLE>
+
+<P><B><U>Constructs Tab</U></B></P>
+<P>The Project Constructs Library is very similar to the Master Constructs Library except that it is associated with a specific Project that is currently open or created. This library stays with the Project and changes made here are applicable only to the current project.</P>
+<P><B><U>The user may make any modification as required.</U></B></P>
+<P><B><U><IMG SRC="Project%20Materials.JPG" WIDTH="905" HEIGHT="313" ALIGN="BASELINE" ALT="Project%20Materials.JPG" BORDER="0"></U></B></P>
+<P>The following columns may be edited by the user:</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>Construct Grid </B>- Constructs may be added or removed by following the general procedures for adding and deleting rows from grids.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>Simple Construct </B>- Beginning version 1.22, the '<B>Simple Construct</B>' option is available to the user when the user decides to enter gross properties of the construct rather that through individual layers. When the '<B>Simple Construct</B>' option is checked for a particular construct, all layers, if any, for that construct are ignored. The user will now be able to enter the gross properties (Conductance, Heat capacity, Density and Thickness) for that construct in the construct grid.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>No-Mass Construct </B>- Beginning version 1.22, the '<B>No-Mass Construct</B>' option is available to the user when the user decides that the wall is too thin or too light for the thermal mass have any impact on compliance calculations. When the '<B>No-Mass Construct</B>' option is checked for a particular construct, only the U-Value is considered in the calculation. This option should be used if most materials that make up the construct are defined only using R-Value for the materials or if the gross thickness of the construct is less that an inch (0.084 ft). In general, use this option if mass-related properties are not available for the gross construct or the materials that constitute the layers of the construct.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>Outside Absorptance </B>- Specifies the fraction of thermal radiation absorbed by the outside layer. This can take values between 0.0 and 1.0.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>Inside Emittance </B>- Specifies the fraction of thermal radiation emitted by the inside layer. This can take values between 0.0 and 1.0.</P>
+<P>User may also modify the entries under the '<B>Construct</B>' column of the grid. Type a names that makes the most sense for the construct.</P>
+<P>All other fields in this grid are not editable, except when the construct is declared '<B>Simple</B>'. They are automatically recalculated and updated based on changes to layers and/or materials when '<B>Simple Construct</B>' is unchecked.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>Conductance</B> - Specifies the overall thermal conductivity of the construct. Conductance may be entered if you check the Simple Construct option. Otherwise the field is non editable and is automatically calculated from the layer data.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>Heat Capacity</B> - Specifies the over all heat capacity of the construct. Heat Capacity may be entered if you check the Simple Construct option and uncheck the No-Mass construct option. Otherwise the field is not editable and is automatically calculated from the layer data.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>Density </B>- Specifies the overall density of the construct. Density may be entered if you check the Simple Construct option and uncheck the No-Mass construct option. Otherwise the field is not editable and is automatically calculated from the layer data.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>Thickness</B> - Specifies the overall thickness of the construct. Thickness may be entered if you check the Simple Construct option and uncheck the No-Mass construct option. Otherwise the field is not editable and is automatically calculated from the layer data.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><B>R-Value</B> - Specifies the overall R-Value of the construct. This field is not editable and is calculated based on other inputs</P>
+<P><B>NOTE: </B>Constructs that may be problematic are flagged as shown for Construct No. 1047 above. If this construct is used in a project envelope component, running '<B>Calculate</B>'&gt;'<B>Error Check</B>' will provide error information possible resolution.</P>
+<P><B><I>Layer Grid</I></B></P>
+<P>Layers may be added or removed by following the general procedures for adding and deleting rows from grids.</P>
+<P>User may change the material of any layer by clicking on the cell button that appears when any cell under the material column in the layer grid is selected.</P>
+<P>When a layer is added, the thickness defaults to the thickness of the material selected for the layer. User may override the thickness by typing a different value.</P>
+<P>User may change the framing factor by typing the desired value. Framing factor is the area-fraction of the framing in a layer. That is, it is the ratio of the area of framing to the total area of the wall. It should be entered for those layers mounted on framing. For example, insulation that is mounted on framing.</P>
+<P>User may reorder the layers in the layer grid by holding left mouse button down on the label cell (the cells in the left most column) of the layer to be moved, and dragging it up or down. A drag icon appears during the dragging process.</P>
+<P>See the section on <!--ForeHelp.Hotspot JUMP="working_with_grids"--><!--ForeHelp.EndHotspot--><A HREF="Working_with_Grids.html">Working with Grids</A> to add, delete, or modify data.</P>
+<P> </P>
+<P><B><U>Materials Tab</U></B></P>
+<P>The Project Materials Library is very similar to the Master Materials Library except that it is associated with a specific Project that is currently open or created. This library stays with the Project and changes made here are applicable only to the current project.</P>
+<P><B><U>The user may make any modification as required.</U></B></P>
+<P><B><U><IMG SRC="Project%20Materials.JPG" WIDTH="905" HEIGHT="313" ALIGN="BASELINE" ALT="Project%20Materials.JPG" BORDER="0"></U></B></P>
+<P>Materials may be added, removed, and changed by following the general procedures for working with grids.</P>
+<P>All fields in the grid except '<B>Mat No.</B>' can be changed by the user.</P>
+<P><B>Conductivity</B> - Specifies the thermal conductivity of the material</P>
+<P><B>Density</B> - Specifies the material density</P>
+<P><B>Specific Heat</B> - Specifies the specific heat of the material</P>
+<P><B>Thick</B> - Specifies the thickness of the material in feet</P>
+<P><B>R-Value</B> - Specifies the thermal resistance of the material</P>
+<P><B>Use R-Val </B>- Two possible specification for a material are possible:</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">1) Specify valid thickness and all thermal properties. In this case, valid conductivity, density and specific heat must be specified and the' Use RVal' check box must be unchecked. This option is used for materials that are likely to have mass effects or when these properties are accurately known. The program will use the thermal properties and ignore the R-Value</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; ">2) For light and thin materials, or for those materials for which the thermal properties are not available, the second option is to specify only the R-Value. In this case the 'Use R-Value' option must be checked. The program will ignore the thermal properties, and use only the R-Value and treat the material as having no mass.</P>
+<P><B>IMPORTANT CAUTIONARY NOTE: </B>It is critical to note that any change to the material properties, will affect the properties of all constructs that use this material as a layer. In general changes to Project Library of materials, constructs or fenestration, will propagate throughout the entire project which use this library component.</P>
+<P>See the section on <!--ForeHelp.Hotspot JUMP="working_with_grids"--><!--ForeHelp.EndHotspot--><A HREF="Working_with_Grids.html">Working with Grids</A> to add, delete, and modify data.</P>
+<P> </P>
+<P><!--ForeHelp.Hotspot JUMP="energygauge_flacom"--><!--ForeHelp.EndHotspot--><A HREF="EnergyGauge_FlaCom.html"><IMG SRC="HOME.jpg" WIDTH="28" HEIGHT="33" ALIGN="BASELINE" ALT="HOME.jpg" BORDER="0"></A></P>
+</BODY></HTML>

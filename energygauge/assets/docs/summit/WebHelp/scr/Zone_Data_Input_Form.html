@@ -1,0 +1,118 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<HTML><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META NAME="keywords" CONTENT="">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<title>Zone Data Input Form</title>
+<META NAME="GENERATOR" CONTENT="ForeHTML Pro 3.0">
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="EnergyGauge_FlaCom_Help.css">
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="FHNonscroll.js">
+
+</SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="FHUtilities.js">
+
+</SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="FHFlyoverPopups.js">
+
+</SCRIPT>
+
+<!--ForeHelp.Ignore-->
+<SCRIPT SRC="sniffer.js"></SCRIPT>
+<SCRIPT SRC="hhscript.js"></SCRIPT>
+<SCRIPT SRC="fh_dhtml.js"></SCRIPT>
+<!--ForeHelp.EndIgnore-->
+</HEAD>
+
+<body BGCOLOR=#ffffff SCROLL="no"><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(19);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../index.htm?page=Zone_Data_Input_Form.html";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0">
+<TR><TD WIDTH="100%">
+<DIV ID="FHNonScroll">
+<DIV><B><U><SPAN       
+      STYLE="FONT-SIZE: 18pt; FONT-FAMILY: Arial,sans-serif" 
+     >Zone Data Input Form</SPAN></U></B></DIV></DIV></TD><TD WIDTH="120" ALIGN="right" NOWRAP><!--ForeHelp.Hotspot JUMP="project_data_input_form"--><!--ForeHelp.EndHotspot--><A href="Project_Data_Input_Form.html"><SPAN       
+      STYLE="FONT-SIZE: 10pt; FONT-FAMILY: Verdana,sans-serif" 
+     ><IMG border=0 alt="Previous Topic" src="BrowseBlueLeft.png" width=20 align=baseline height=20 ></SPAN></A><SPAN       
+      STYLE="FONT-SIZE: 10pt; FONT-FAMILY: Verdana,sans-serif" 
+     >&nbsp;&nbsp;</SPAN><!--ForeHelp.Hotspot JUMP="space_data_input_form"--><!--ForeHelp.EndHotspot--><A href="Space_Data_Input_Form.html"><SPAN       
+      STYLE="FONT-SIZE: 10pt; FONT-FAMILY: Verdana,sans-serif" 
+     ><IMG border=0 alt="Next Topic" src="BrowseBlueRight.png" width=20 align=baseline height=20 ></SPAN></A><SPAN       
+      STYLE="FONT-SIZE: 10pt; FONT-FAMILY: Verdana,sans-serif" 
+     >&nbsp;</SPAN></TD></TR></TABLE>
+
+<DIV ID="FHScroll">
+<P><B><U>Zone Load Data Tab</U></B></P>
+<P><IMG border=0 alt=Zone%20Load%20Tab.JPG src="Zone%20Load%20Tab.JPG" width=668 align=baseline height=638></P>
+<P><B>Acronym</B> - A short description (up to 20 characters).</P>
+<P><B>Description</B> - Enter a detailed description (up to 50 characters).</P>
+<P><B>Type</B> - Specifies the type of zone</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  36pt"  ><I>Conditioned</I> - maintains zone air at desired conditions.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  36pt"  ><I>Unconditioned</I> - Zone is not conditioned.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  36pt"  ><I>Plenum</I> - Zones that act as conduits for return air.</P>
+<P><B>Zone Category</B> - Select the category of the zone from a pre-defined list. This is required as for example, the building type may be an assembly, but may have a zone that serves as an office located in it. The building type selected on the project form will then be an assembly, but the category selected for this zone will be of type 'Office'.</P>
+<P><B>Is enclosed (per ASHRAE 90.1-2010 Section 5.5.4.2.3) </B>- If checked, will classify the zone as enclosed as per the description given in ASHRAE 90.1-2010 5.5.4.2.3</P>
+<P><B>IECC 2012 402.3.1.1 Exception for increased Fenestration Area </B>- If checked, will allow for calculations to be run with an increased allowance for vertical fenestration. To check if such an exception is allowed, refer to the IECC 2012 code.</P>
+<P><B>IECC 2012 402.3.1.2 Exception for increased Skylight Area </B>- If checked, will allow for calculations to be run with an increased allowance for skylights. To check if such an exception is allowed, refer to the IECC 2012 code.</P>
+<P><B>Use Building Load Profile or <IMG border=0 alt=Select%20Profile.JPG src="Select%20Profile.JPG" width=98 align=baseline height=24> </B>- Allows to user to apply a pre-existing profile to the zone, or use the overall building profile when attempting to run load calculations.</P>
+<P><B><U>Dimensions</U></B></P>
+<P><B>NOTE:</B>&nbsp; The area and volume of the zone are automatically calculated by summing the individual values for the spaces under the zone. This occurs any time a change is made to space dimensions or spaces are added or deleted. There is, however, a limitation on the per Zone Area and Volume thus calculated. Maximum Zone area is limited to 100,000 SF and maximum Zone Volume is limited to 1,000,000 CF. However, these can be overcome by defining additional Zones or using the Zone Multiplier for multiple zones that are exactly the same.</P>
+<P><B>Area not included in spaces [SF] </B>- Represents extraneous area that has not been included under spaces. This is added to the total space area under the zone.&nbsp; If none, set to 0.</P>
+<P><B>Number of Zones - </B>Specifies the number of identical zones in the building to the current one. If two or more zones are identical, use this entry rather that creating additional zones.</P>
+<P><B><U>Thermostat</U></B></P>
+<P>The thermostat will control the zone to the particular set-point as specified in the zone set point schedule for heating or cooling. It will be responsible for turning the HVAC system on or off based on zone heating or cooling load requirements. The user should input the type of thermostat (eg. proportional etc.) and the range or the dead band in which the thermostat should control the zone temperature to.</P>
+<P><B><U>Lighting</U></B></P>
+<P><B>Type</B> - Specifies the predominant type of overhead lighting used in the zone.&nbsp; Note that lighting power and type is specified in the space forms.</P>
+<P><B>ASHRAE 90.1-2010 5.5.4.2.3 Exception C or D </B>- If checked, will allow for a calculation to run with reduced daylight area under skylights. This reduced area is based upon the amount of primary and secondary sidelighted area.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  ><I>Primary Sidelighted Area</I> - The area in square feet of primary sidelighted area with an effective aperture greater than 0.15 and with general lighting controlled as described in section 9.4.1.4 of ASHRAE 90.1-2010.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  ><I>Secondary Sidelighted Area</I> - The area in square feet of secondary sidelighted area with an effective aperture greater than 0.30 and with general lighting controlled by continuous daylight dimming.</P>
+<P><B><U>Source</U></B></P>
+<P>Specifies internal source type due to sources other than people, lights, or equipment. Note that the source rates rate is specified in the space forms.</P>
+<P>&nbsp;</P>
+<P><B><U>HOW TO HANDLE A PRE-EXISTING UNCONDITIONED ZONE THAT IS NOT PART OF YOUR DESIGN BUT HAS YOUR&nbsp; ENVELOPE NEXT TO IT</U></B></P>
+<P>In some instances, you may have to account for a zone that pre-exists and is not part of your design.&nbsp; Since the calculation requires a physical zone whenever an adjacent envelope is specified next to it, the following procedure suggests how to accomplish it with minimal input and effort.</P>
+<P><IMG border=0 alt=Preexisting%20Zones.JPG src="Preexisting%20Zones.JPG" width=675 align=baseline height=349></P>
+<P><B>Steps to account for an Zone that pre-exists.</B></P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >1) Add a Zone. You may choose to label it as '<B>PRE-EXIST</B>'.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >2) Set the Zone to '<B>Unconditioned</B>'.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >3) Add a Space under this new Zone.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >4) Set Space category to '<B>Unlisted</B>'.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >5) Set the width and height of the space equal to the width and height, respectively, of your adjacent wall.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >6) Set the depth of the space to a minimum value, say 1 ft.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >7) Set No. of Task locations to zero.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >8) Add a lighting to the space. Use minimum Watts (equal to what is indicated by the Budget, or say 5 Watts).</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >9) Set Control Type to '<B>Security Lighting</B>'.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >10) Set No. of Controls to Zero.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >11) You can now set your adjacent wall next to this new '<B>PRE-EXIST</B>' zone.</P>
+<P STYLE="MARGIN: 0pt  0pt  12pt  18pt"  >12) If you are running Method A, you will have to assign the '<B>PRE-EXIST</B>' zone to some system in the project. As long the '<B>PRE-EXIST</B>' zone is set to '<B>Unconditioned</B>', there will be no energy impact.</P>
+<P>&nbsp;</P>
+<P><B><U>Zone Summary</U></B></P>
+<P><IMG style="HEIGHT: 559px; WIDTH: 569px" alt="" 
+src="Zone Summary Tab.JPG" width=1565 height=1527></P>
+<P><!--ForeHelp.Hotspot JUMP="forms"--><!--ForeHelp.EndHotspot--><A class=rvts4 href="Forms.html">Related Topics</A> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;<!--ForeHelp.Hotspot JUMP="energygauge_flacom"--><!--ForeHelp.EndHotspot--><A href="EnergyGauge_FlaCom.html"><IMG border=0 alt=HOME.jpg src="HOME.jpg" width=30 align=baseline height=36></A></P></DIV>
+<DIV></DIV>
+<DIV></DIV>
+</BODY></HTML>

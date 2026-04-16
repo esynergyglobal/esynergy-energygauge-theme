@@ -1,0 +1,316 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<title>EnergyGaugeSummit Help</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css"> 
+<!-- 
+.selected {font-weight: normal;background-color: #E2E2E2;padding:0px,2px,0px,2px;}
+.unselected { font-weight: normal;padding:0px,2px,0px,2px;}
+.hand { cursor: hand; }
+.p {height: 16px;width: 16px;vertical-align: middle;border: 0;}
+div,body { font-family: Tahoma, Verdana; font-size: 11px; }
+A:link {text-decoration: none; color:#000000}
+A:visited {text-decoration: none; color: #000000}
+A:active {text-decoration: none; color: #000000 }
+A:hover {text-decoration: none; color: #FF0000 }
+
+-->
+</style>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var cl,pn,pm,bl;
+var path = 'icons/';
+var pos = 0;
+var icon;
+var tar = 'content';
+var display;
+var imgi;
+var AutoCollapse;
+var LastSelected = -1;
+var loaded = false;
+var max;
+var divlist;
+
+function SetEnv(v,a){
+
+if(v==0){ 
+	pn = [['daplus.gif','daminus.gif'],['tplus.gif','tminus.gif'],['uaplus.gif','uaminus.gif'],['splus.gif','sminus.gif']];
+	PreloadImg('downangle.gif','tshaped.gif','upangle.gif','sline.gif','daplus.gif','daminus.gif','tplus.gif','tminus.gif','uaplus.gif','uaminus.gif','splus.gif','sminus.gif','blank.gif','line.gif');
+}else{
+	pn = [['plus.gif','minus.gif']];
+	PreloadImg('plus.gif','minus.gif','blank.gif');
+
+}
+AutoCollapse = a;
+}
+
+ function PreloadImg(){
+if (document.images) { 
+	var imgs = PreloadImg.arguments; 
+	var pload = new Array();
+	for (var i=0; i<imgs.length; i++) { 
+		pload[i] = new Image; 
+		pload[i].src = path + imgs[i]; 
+	} 
+} 
+ } 
+
+function get(o){
+var x;
+if(document.all) x=document.all[o]; 
+if(document.getElementById) x=document.getElementById(o);
+
+return x;
+}
+
+
+function pnImg(img){
+var i,j;
+for(i=0;i<=3;i++){
+	for(j=0;j<=1;j++){
+	if(img.substr(img.lastIndexOf('/') + 1)== pn[i][j]){
+		return i;
+	}
+	}
+}
+}
+function icon(img){
+var f;
+f = img.substr(img.lastIndexOf('/') + 1);
+if( f=='1.gif' || f=='2.gif'){
+	return ['1.gif','2.gif'];
+}
+if( f=='3.gif' || f=='4.gif'){
+	return ['3.gif','4.gif'];
+}
+if( f=='5.gif' || f=='6.gif'){
+	return ['5.gif','6.gif'];
+}
+if( f=='7.gif' || f=='8.gif'){
+	return ['7.gif','8.gif'];
+}
+return [f,f];
+}
+
+function show(id){
+get('d' + id).style.display='block';
+if(get('imgn' + id )) get('imgn' + id ).src= path + pn[pnImg(get('imgn' + id ).src)][1];
+get('img' + id ).src= path + icon(get('img' + id ).src)[1];
+
+}
+
+function collapse(id){
+get('d' + id ).style.display='none';
+if(get('imgn' + id )) get('imgn' + id ).src= path + pn[pnImg(get('imgn' + id ).src)][0];
+get('img' + id ).src= path + icon(get('img' + id ).src)[0];
+
+}
+
+function collapseAll(){
+var i;
+var o;
+for(i=0;i<=divlist.length-1;i++){
+	if(o=get('d' + divlist[i])){
+		if(o.style.display!='none'){ 
+			collapse(divlist[i]);
+		}
+	}
+}
+}
+
+function showAll(){
+var i;
+var o;
+for(i=0;i<=divlist.length-1;i++){
+	if(o=get('d' + divlist[i])){
+		if(o.style.display!='block'){ 
+			show(divlist[i]);
+		}
+	}
+}
+}
+
+function unselectAll(){
+var i=0;
+while(get("l" + i)){
+	get("l" + i).className = "unselected";
+	i++;
+}
+}
+
+function clickNode(index){
+var e;
+
+e = get("l" + index);
+if(e==null) return;
+e = e.parentNode;
+if(e.nodeName == 'A'){
+	if(e.href!= window.location.href + '#'){
+		parent.parent.content.location.href = e.href;
+	}else{
+		selectNode(index);
+	}
+	e.onclick;
+}
+}
+
+function showParent(ele){
+var e;
+e = ele.parentNode;
+
+if(e==null) return;
+
+if(e.nodeName == 'DIV'){
+	if(e.id!='') show(e.id.substring(1,e.id.length ));
+}else if(e.nodeName == 'A'){
+
+}
+showParent(e);
+}
+
+function showNode(index){
+showParent(get("l" + index));
+LinkClick(index);
+}
+
+function selectNode(index){
+if(LastSelected!=index){
+//collapseAll();
+showParent(get("l" + index));
+LinkClick(index);
+get('l' + index).scrollIntoView(true);
+
+
+//alert(get('l' + index).offsetHeight + '|' + document.body.clientHeight + '|' + document.body.offsetHeight);
+window.scrollTo(0,document.body.scrollTop); // - document.body.clientHeight /3);
+}
+}
+
+
+function NodeClick(id){
+if(get('d' + id ).style.display=='none'){
+	show(id);
+}else{
+	collapse(id);
+}
+return false;
+}
+
+function LinkDblClick(id){
+if(!AutoCollapse){
+	if(get('d' + id ).style.display=='none'){
+		show(id);
+	}else{
+		collapse(id);
+	}
+}
+return false;
+}
+
+function LinkClick(index,hasChild,r){
+if(AutoCollapse && hasChild){
+	if(get('d' + index ).style.display=='none'){
+		collapseAll()
+		showParent(get('l' + index));
+		show(index);
+	}else{
+		collapseAll()
+		showParent(get('l' + index));	
+		collapse(index);
+	}
+}
+if(LastSelected!=-1){
+	get('l' + LastSelected).className = "unselected";
+}
+get('l' + index).className = "selected";
+LastSelected = index;
+return r;
+}
+
+function body_onmousemove(event){
+if(typeof(document.body.scrollTop)!='undefined'){
+if(parseInt(event.clientX)<5){
+window.scroll(0,document.body.scrollTop);}}
+if(typeof(window.scrollY)!='undefined'){
+if(parseInt(event.clientX)<5){
+window.scrollTo(0,window.scrollY);}}
+}
+
+window.defaultStatus = '';
+
+function body_onload(){
+get('loading').style.display='none';
+loaded = true;
+if(parent.parent.content.document.readyState){
+	if(parent.parent.content.document.readyState == 'complete'){
+		try{parent.parent.content.syn();}catch(e){};
+	}
+}else{
+	if(parent.parent.contentLoaded){
+		try{parent.parent.content.syn();}catch(e){};
+	}
+}
+}
+
+//-->
+</SCRIPT>
+<script language="JavaScript" src="languages.js"></script>
+
+</head>
+
+<body bgcolor="#ffffff" leftmargin="5" topmargin="5" marginwidth="5" marginheight="5" onmousemove="body_onmousemove(event);" onload="body_onload();">
+<div id="loading"><font color="#FF0000" size="1"> Loading table of contents... 
+</font><br><br></div>
+<script>SetEnv(0,false)</script><div><nobr><a href="#" onClick="return NodeClick('0')"><img id="imgn0" src="icons/daplus.gif" class="p"></a><a href="#" onclick="return LinkClick('0',true,false)" onDblClick="return LinkDblClick('0')" target="content" title="Welcome" onmousemove="window.status='Welcome'"><img id="img0" src="icons/1.gif" class="p"> <span id="l0" class="unselected">Welcome</span></a></nobr></div>
+<div id="d0" style="display:none"><div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/EnergyGauge_FlaCom.html" onclick="return LinkClick('1',false,true)" target="content" title="EnergyGauge Summit" onmousemove="window.status='EnergyGauge Summit'"><img src="icons/11.gif" class="p"> <span id="l1" class="unselected">EnergyGauge Summit</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Introduction.html" onclick="return LinkClick('2',false,true)" target="content" title="Introduction" onmousemove="window.status='Introduction'"><img src="icons/11.gif" class="p"> <span id="l2" class="unselected">Introduction</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Navigation_Tree.html" onclick="return LinkClick('3',false,true)" target="content" title="Project Explorer" onmousemove="window.status='Project Explorer'"><img src="icons/11.gif" class="p"> <span id="l3" class="unselected">Project Explorer</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Working_with_Grids.html" onclick="return LinkClick('4',false,true)" target="content" title="Working with Grids" onmousemove="window.status='Working with Grids'"><img src="icons/11.gif" class="p"> <span id="l4" class="unselected">Working with Grids</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/New_Item.htm" onclick="return LinkClick('5',false,true)" target="content" title="Steps to Comply with Florida 8th Ed (2023) Building Code" onmousemove="window.status='Steps to Comply with Florida 8th Ed (2023) Building Code'"><img src="icons/11.gif" class="p"> <span id="l5" class="unselected">Steps to Comply with Florida 8th Ed (2023) Building Code</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/upangle.gif" class="p"><a href="scr/Steps_to_Comply_with_Florida_7th_ed_(2020)_Building_Code.htm" onclick="return LinkClick('6',false,true)" target="content" title="Steps to Comply with Florida 7th ed (2020) Building Code" onmousemove="window.status='Steps to Comply with Florida 7th ed (2020) Building Code'"><img src="icons/11.gif" class="p"> <span id="l6" class="unselected">Steps to Comply with Florida 7th ed (2020) Building Code</span></a></nobr></div>
+</div><div><nobr><a href="#" onClick="return NodeClick('7')"><img id="imgn7" src="icons/tplus.gif" class="p"></a><a href="#" onclick="return LinkClick('7',true,false)" onDblClick="return LinkDblClick('7')" target="content" title="Top Menus" onmousemove="window.status='Top Menus'"><img id="img7" src="icons/1.gif" class="p"> <span id="l7" class="unselected">Top Menus</span></a></nobr></div>
+<div id="d7" style="display:none"><div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/File_Menu.html" onclick="return LinkClick('8',false,true)" target="content" title="File Menu" onmousemove="window.status='File Menu'"><img src="icons/11.gif" class="p"> <span id="l8" class="unselected">File Menu</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Edit_Menu.html" onclick="return LinkClick('9',false,true)" target="content" title="Edit Menu" onmousemove="window.status='Edit Menu'"><img src="icons/11.gif" class="p"> <span id="l9" class="unselected">Edit Menu</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/View_Menu.html" onclick="return LinkClick('10',false,true)" target="content" title="View Menu" onmousemove="window.status='View Menu'"><img src="icons/11.gif" class="p"> <span id="l10" class="unselected">View Menu</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Calculate_Menu.html" onclick="return LinkClick('11',false,true)" target="content" title="Calculate Menu" onmousemove="window.status='Calculate Menu'"><img src="icons/11.gif" class="p"> <span id="l11" class="unselected">Calculate Menu</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Reports_Menu.html" onclick="return LinkClick('12',false,true)" target="content" title="Reports Menu" onmousemove="window.status='Reports Menu'"><img src="icons/11.gif" class="p"> <span id="l12" class="unselected">Reports Menu</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Resources_Menu.html" onclick="return LinkClick('13',false,true)" target="content" title="Resources Menu" onmousemove="window.status='Resources Menu'"><img src="icons/11.gif" class="p"> <span id="l13" class="unselected">Resources Menu</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Tools_Menu.html" onclick="return LinkClick('14',false,true)" target="content" title="Tools Menu" onmousemove="window.status='Tools Menu'"><img src="icons/11.gif" class="p"> <span id="l14" class="unselected">Tools Menu</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Window_Menu.html" onclick="return LinkClick('15',false,true)" target="content" title="Window Menu" onmousemove="window.status='Window Menu'"><img src="icons/11.gif" class="p"> <span id="l15" class="unselected">Window Menu</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/upangle.gif" class="p"><a href="scr/Help_Menu.html" onclick="return LinkClick('16',false,true)" target="content" title="Help Menu" onmousemove="window.status='Help Menu'"><img src="icons/11.gif" class="p"> <span id="l16" class="unselected">Help Menu</span></a></nobr></div>
+</div><div><nobr><a href="#" onClick="return NodeClick('17')"><img id="imgn17" src="icons/tplus.gif" class="p"></a><a href="#" onclick="return LinkClick('17',true,false)" onDblClick="return LinkDblClick('17')" target="content" title="Building Component Inputs" onmousemove="window.status='Building Component Inputs'"><img id="img17" src="icons/1.gif" class="p"> <span id="l17" class="unselected">Building Component Inputs</span></a></nobr></div>
+<div id="d17" style="display:none"><div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Project_Data_Input_Form.html" onclick="return LinkClick('18',false,true)" target="content" title="Project Data Input Form" onmousemove="window.status='Project Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l18" class="unselected">Project Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Zone_Data_Input_Form.html" onclick="return LinkClick('19',false,true)" target="content" title="Zone Data Input Form" onmousemove="window.status='Zone Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l19" class="unselected">Zone Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Space_Data_Input_Form.html" onclick="return LinkClick('20',false,true)" target="content" title="Space Data Input Form" onmousemove="window.status='Space Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l20" class="unselected">Space Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Wall_Data_Input_Form.html" onclick="return LinkClick('21',false,true)" target="content" title="Wall Data Input Form" onmousemove="window.status='Wall Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l21" class="unselected">Wall Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Window_Data_Input_Form.htm" onclick="return LinkClick('22',false,true)" target="content" title="Window Data Input Form" onmousemove="window.status='Window Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l22" class="unselected">Window Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Door_Data_Input_Form.html" onclick="return LinkClick('23',false,true)" target="content" title="Door Data Input Form" onmousemove="window.status='Door Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l23" class="unselected">Door Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Roof_Data_Input_Form.html" onclick="return LinkClick('24',false,true)" target="content" title="Roof Data Input Form" onmousemove="window.status='Roof Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l24" class="unselected">Roof Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Skylight_Data_Input_Form.html" onclick="return LinkClick('25',false,true)" target="content" title="Skylight Data Input Form" onmousemove="window.status='Skylight Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l25" class="unselected">Skylight Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Floor_Data_Input_Form.html" onclick="return LinkClick('26',false,true)" target="content" title="Floor Data Input Form" onmousemove="window.status='Floor Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l26" class="unselected">Floor Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/System_Data_Input_Form.htm" onclick="return LinkClick('27',false,true)" target="content" title="System Data Input Form" onmousemove="window.status='System Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l27" class="unselected">System Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Plant_Data_Input_Form.html" onclick="return LinkClick('28',false,true)" target="content" title="Plant Data Input Form" onmousemove="window.status='Plant Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l28" class="unselected">Plant Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Water_Heater_Data_Input_For.html" onclick="return LinkClick('29',false,true)" target="content" title="Water Heater Data Input Form" onmousemove="window.status='Water Heater Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l29" class="unselected">Water Heater Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/External_Lighting_Data_Inpu.html" onclick="return LinkClick('30',false,true)" target="content" title="External Lighting Data Input Form" onmousemove="window.status='External Lighting Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l30" class="unselected">External Lighting Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Piping_Data_Input_Form.html" onclick="return LinkClick('31',false,true)" target="content" title="Piping Data Input Form" onmousemove="window.status='Piping Data Input Form'"><img src="icons/11.gif" class="p"> <span id="l31" class="unselected">Piping Data Input Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/LEED22_Additional_Inputs_Fo.html" onclick="return LinkClick('32',false,true)" target="content" title="LEED22 Additional Inputs Form" onmousemove="window.status='LEED22 Additional Inputs Form'"><img src="icons/11.gif" class="p"> <span id="l32" class="unselected">LEED22 Additional Inputs Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/LEEDOnlineSubmissionInstructions.html" onclick="return LinkClick('33',false,true)" target="content" title="LEED Online Submission Instructions" onmousemove="window.status='LEED Online Submission Instructions'"><img src="icons/11.gif" class="p"> <span id="l33" class="unselected">LEED Online Submission Instructions</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/District_Thermal_Energy_Man.html" onclick="return LinkClick('34',false,true)" target="content" title="District Thermal Energy Management for LEED" onmousemove="window.status='District Thermal Energy Management for LEED'"><img src="icons/11.gif" class="p"> <span id="l34" class="unselected">District Thermal Energy Management for LEED</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/upangle.gif" class="p"><a href="scr/Profiles_and_Schedules.html" onclick="return LinkClick('35',false,true)" target="content" title="Profiles and Schedules" onmousemove="window.status='Profiles and Schedules'"><img src="icons/11.gif" class="p"> <span id="l35" class="unselected">Profiles and Schedules</span></a></nobr></div>
+</div><div><nobr><a href="#" onClick="return NodeClick('36')"><img id="imgn36" src="icons/tplus.gif" class="p"></a><a href="#" onclick="return LinkClick('36',true,false)" onDblClick="return LinkDblClick('36')" target="content" title="Master Library Information" onmousemove="window.status='Master Library Information'"><img id="img36" src="icons/1.gif" class="p"> <span id="l36" class="unselected">Master Library Information</span></a></nobr></div>
+<div id="d36" style="display:none"><div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Master_Materials_Library_Fo.htm" onclick="return LinkClick('37',false,true)" target="content" title="Master Materials Library Form" onmousemove="window.status='Master Materials Library Form'"><img src="icons/11.gif" class="p"> <span id="l37" class="unselected">Master Materials Library Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/upangle.gif" class="p"><a href="scr/Master_Constructs_Library_F.htm" onclick="return LinkClick('38',false,true)" target="content" title="Master Constructs Library Form" onmousemove="window.status='Master Constructs Library Form'"><img src="icons/11.gif" class="p"> <span id="l38" class="unselected">Master Constructs Library Form</span></a></nobr></div>
+</div><div><nobr><a href="#" onClick="return NodeClick('39')"><img id="imgn39" src="icons/tplus.gif" class="p"></a><a href="#" onclick="return LinkClick('39',true,false)" onDblClick="return LinkDblClick('39')" target="content" title="User Library Information" onmousemove="window.status='User Library Information'"><img id="img39" src="icons/1.gif" class="p"> <span id="l39" class="unselected">User Library Information</span></a></nobr></div>
+<div id="d39" style="display:none"><div><nobr><img src="icons/line.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/Project_Materials_and_Const.htm" onclick="return LinkClick('40',false,true)" target="content" title="Project Materials and Constructs Library Form" onmousemove="window.status='Project Materials and Constructs Library Form'"><img src="icons/11.gif" class="p"> <span id="l40" class="unselected">Project Materials and Constructs Library Form</span></a></nobr></div>
+<div><nobr><img src="icons/line.gif" class="p"><img src="icons/upangle.gif" class="p"><a href="scr/Project_Fenestrations_Libra.htm" onclick="return LinkClick('41',false,true)" target="content" title="Project Fenestrations Library Form" onmousemove="window.status='Project Fenestrations Library Form'"><img src="icons/11.gif" class="p"> <span id="l41" class="unselected">Project Fenestrations Library Form</span></a></nobr></div>
+</div><div><nobr><a href="#" onClick="return NodeClick('42')"><img id="imgn42" src="icons/tplus.gif" class="p"></a><a href="#" onclick="return LinkClick('42',true,false)" onDblClick="return LinkDblClick('42')" target="content" title="Reference Manuals" onmousemove="window.status='Reference Manuals'"><img id="img42" src="icons/1.gif" class="p"> <span id="l42" class="unselected">Reference Manuals</span></a></nobr></div>
+<div id="d42" style="display:none"><div><nobr><img src="icons/line.gif" class="p"><img src="icons/upangle.gif" class="p"><a href="scr/Florida_Building_Code.htm" onclick="return LinkClick('43',false,true)" target="content" title="Florida Building Code" onmousemove="window.status='Florida Building Code'"><img src="icons/11.gif" class="p"> <span id="l43" class="unselected">Florida Building Code</span></a></nobr></div>
+</div><div><nobr><a href="#" onClick="return NodeClick('44')"><img id="imgn44" src="icons/uaplus.gif" class="p"></a><a href="#" onclick="return LinkClick('44',true,false)" onDblClick="return LinkDblClick('44')" target="content" title="Technical Support" onmousemove="window.status='Technical Support'"><img id="img44" src="icons/1.gif" class="p"> <span id="l44" class="unselected">Technical Support</span></a></nobr></div>
+<div id="d44" style="display:none"><div><nobr><img src="icons/blank.gif" class="p"><img src="icons/tshaped.gif" class="p"><a href="scr/System_Requirements.htm" onclick="return LinkClick('45',false,true)" target="content" title="System Requirements" onmousemove="window.status='System Requirements'"><img src="icons/11.gif" class="p"> <span id="l45" class="unselected">System Requirements</span></a></nobr></div>
+<div><nobr><img src="icons/blank.gif" class="p"><img src="icons/upangle.gif" class="p"><a href="scr/Activation_and_Support.htm" onclick="return LinkClick('46',false,true)" target="content" title="Activation and Support" onmousemove="window.status='Activation and Support'"><img src="icons/11.gif" class="p"> <span id="l46" class="unselected">Activation and Support</span></a></nobr></div>
+</div><script>divlist = [0,7,17,36,39,42,44]</script>
+</body>
+</html>

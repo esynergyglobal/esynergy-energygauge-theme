@@ -1,0 +1,114 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0014)about:internet -->
+<HTML><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META NAME="keywords" CONTENT="">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+<title>Wall Data Input Form</title>
+<META NAME="GENERATOR" CONTENT="ForeHTML Pro 3.0">
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="EnergyGauge_FlaCom_Help.css">
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="FHNonscroll.js">
+
+</SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="FHUtilities.js">
+
+</SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="FHFlyoverPopups.js">
+
+</SCRIPT>
+
+<!--ForeHelp.Ignore-->
+<SCRIPT SRC="sniffer.js"></SCRIPT>
+<SCRIPT SRC="hhscript.js"></SCRIPT>
+<SCRIPT SRC="fh_dhtml.js"></SCRIPT>
+<!--ForeHelp.EndIgnore-->
+</HEAD>
+
+<body BGCOLOR=#ffffff SCROLL="no"><script language="JavaScript" type="text/JavaScript">
+function syn(){
+if(parent.nav.tree){
+ if(parent.nav.tree.loaded){
+  parent.nav.tree.selectNode(21);
+ }else{
+  setTimeout("syn()",500);
+}
+  }else{
+  setTimeout("syn()",500);
+  }}
+if(parent!=self){
+  setTimeout("syn()",100);
+}else{
+  parent.location.href = "../index.htm?page=Wall_Data_Input_Form.html";
+}
+originalOnload = window.onload;
+if(originalOnload==null){
+window.onload = function(){parent.contentLoaded = true;};
+}else{
+window.onload = function(){originalOnload();parent.contentLoaded = true;};
+}
+</script> 
+
+<TABLE WIDTH="100%" CELLPADDING="2" CELLSPACING="0">
+<TR><TD WIDTH="100%">
+<DIV ID="FHNonScroll">
+<DIV><B><U><SPAN  STYLE="font-size: 18pt ; font-family: Arial,sans-serif; ">Wall Data Input Form</SPAN></U></B></TD><TD WIDTH="120" ALIGN="RIGHT" NOWRAP><!--ForeHelp.Hotspot JUMP="space_data_input_form"--><!--ForeHelp.EndHotspot--><A HREF="Space_Data_Input_Form.html"><SPAN  STYLE="font-size: 10pt ; font-family: Verdana,sans-serif; "><IMG SRC="BrowseBlueLeft.png" WIDTH="20" HEIGHT="20" ALIGN="BASELINE" BORDER="0" ALT="Previous Topic"></SPAN></A><SPAN  STYLE="font-size: 10pt ; font-family: Verdana,sans-serif; ">  </SPAN><!--ForeHelp.Hotspot JUMP="window_data_input_form"--><!--ForeHelp.EndHotspot--><A HREF="Window_Data_Input_Form.htm"><SPAN  STYLE="font-size: 10pt ; font-family: Verdana,sans-serif; "><IMG SRC="BrowseBlueRight.png" WIDTH="20" HEIGHT="20" ALIGN="BASELINE" BORDER="0" ALT="Next Topic"></SPAN></A><SPAN  STYLE="font-size: 10pt ; font-family: Verdana,sans-serif; "> </SPAN></TD></TR></TABLE>
+
+<DIV ID="FHScroll">
+<P><B><U>Wall Info</U></B></P>
+<P><IMG SRC="Wall Tab.JPG" ALT="Wall%20Tab.JPG" WIDTH="492" HEIGHT="586" ALIGN="BASELINE" BORDER="0"></P>
+<P><B>Acronym</B> - A short description (up to 20 characters)</P>
+<P><B>Description</B> - A detailed description (up to 50 characters)</P>
+<P><B>Select Construct</B> - Allows selection of the construct (sometimes called wall type or envelope type) for the wall.  Clicking this button opens a list of all constructs in the Project. You can then select a construct for the wall from the list.  If a suitable construct is not available in the list, you must first add (or build) the construct in Project Resources before being able to select that construct for the wall.</P>
+<P><B>Location</B> - The explanation given here applies to Walls, Roofs and Floors.</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Exterior</I> - Implies that the surface is exposed to the outside (eg. Exterior Walls, Exterior Roofs, Floor that are raised above grade and exposed to the outside).</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Underground</I> - Implies that the surface is on or below ground (eg. basement walls, on-grade and below grade floors).</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Adjacent to another zone</I> - Implies that the surface is adjacent to another previously defined zone (eg. partition walls and ceiling between Stories).  In this, case the zone to which this is adjacent to must be selected using the selection button <IMG SRC="Select%20Adjacent%20Zone.JPG" WIDTH="84" HEIGHT="25" ALIGN="BASELINE" ALT="Select%20Adjacent%20Zone.JPG" BORDER="0">.</P>
+<P><B><U><SPAN  STYLE="color: #ff0000; ">The note below applies ONLY to version 1.21 and below</SPAN></U></B></P>
+<P><B>Important Note: </B>The  Adjacent zone selected here must always be a previously defined zone in the project hierarchy.  It cannot be a succeeding zone in the project hierarchy. So the first zone in the project cannot have adjacent surfaces defined. But the second zone in the project can have surfaces that is adjacent to the first zone. However it cannot have surfaces defined that are adjacent to a third zone which comes after this one in the hierarchy.</P>
+<P><B>Beginning Version 1.22</B>, the above restriction does not apply and the user is not required to order the zones as above. The program automatically attempts to reorder zones as required and issues an error message when circular references in adjacent envelopes are discovered. A circular reference is one in which, for example,  an envelope in Zone A is adjacent to Zone B, and another envelope in Zone B is adjacent to Zone A.</P>
+<P><B>ASHRAE Category</B> - Allows the user to select the appropriate ASHRAE category for the building component. This determines the maximum allowable assembly U-value for that component in the baseline (reference) building</P>
+<P><B>Is Store Front Per ASHRAE 90.1-2010 5.5.4.4.1(c) </B>- Check or Uncheck if this wall serves as a store front, as layed out by ASHRAE 90.1-2010 Section 5.5.4.4.1 (c). This will allow for the fenestration area on this wall to be ignored when determine the total vertical fenestration area percentage fo the building. </P>
+<P>&nbsp;</P>
+<P><B><U>Dimensions</U></B></P>
+<P><B>Shape Type</B> - There are various shape types that can be entered. Note that the required number of dimensions will become active and should be entered upon selecting a shape type. The various shape types are:</P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Square</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><IMG SRC="Square.JPG" WIDTH="500" HEIGHT="197" ALIGN="BASELINE" ALT="Square.JPG" BORDER="0"></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Rectangle</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><IMG SRC="Rectangle.JPG" WIDTH="503" HEIGHT="193" ALIGN="BASELINE" ALT="Rectangle.JPG" BORDER="0"></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Triangle</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><IMG SRC="Triangle.JPG" WIDTH="501" HEIGHT="195" ALIGN="BASELINE" ALT="Triangle.JPG" BORDER="0"></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Semicircle</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><IMG SRC="Semicircle.JPG" WIDTH="502" HEIGHT="194" ALIGN="BASELINE" ALT="Semicircle.JPG" BORDER="0"></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Trapezoid</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><IMG SRC="Trapezoid.JPG" WIDTH="502" HEIGHT="192" ALIGN="BASELINE" ALT="Trapezoid.JPG" BORDER="0"></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Rectangle with Semicircle</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><IMG SRC="Rectangle%20With%20SemiCircle.JPG" WIDTH="498" HEIGHT="191" ALIGN="BASELINE" ALT="Rectangle%20With%20SemiCircle.JPG" BORDER="0"></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><I>Rectangle with Triangle</I></P>
+<P STYLE="margin: 0pt  0pt  12pt  18pt ; "><IMG SRC="Rectangle%20With%20Triangle.JPG" WIDTH="505" HEIGHT="192" ALIGN="BASELINE" ALT="Rectangle%20With%20Triangle.JPG" BORDER="0"></P>
+<P>If the shape selected is a <I>Rectangle with Triangle</I> or <I>Trapezoid</I> then the user has to enter <B>3 dimensions</B> in the dimension boxes.</P>
+<P>If the shape selected is a <I>Square</I> then the user has to enter <B>1 dimension</B>.</P>
+<P>For rest of the shapes only <B>2 dimensions</B> have to be specified.</P>
+<P><B>Dimensions [ft]</B> - The required dimensions based on the particular shape selected.</P>
+<P><B>Multiplier</B> - Used to specify the total number of identical wall panels located in the same plane. If two or more walls are identical, use this entry rather than adding more walls to your project.</P>
+<P> </P>
+<P><B><U>Placement</U></B></P>
+<P><IMG SRC="AZTILTANGLES.jpg" WIDTH="631" HEIGHT="464" ALIGN="BASELINE" ALT="AZTILTANGLES.jpg" BORDER="0"></P>
+<P>The figure above gives the general principles of determining the Tilt and Azimuth angles. An outward normal is first drawn from the exterior side of the surface.  An outward normal is a line that is perpendicular to the plane of the surface in question. The tilt angle is the angle made by the outward normal with the vertical axis as shown in figure.</P>
+<P>The azimuth is the direction the surfaces faces. For vertical surfaces, it is the direction the outward normal faces. To obtain the direction for a non vertical surface, first project the outward normal to the horizontal plane. The direction the projected line faces is the Azimuth, with North = 0, East = 90, South = 180 and West = 270.</P>
+<P><B>Tilt</B> - Surface tilt. Vertical = 90 (eg. Vertical Wall); Horizontal facing up = 0 (eg. Flat roof); Horizontal facing down = 180 (eg. floor). <!--ForeHelp.Hotspot JUMP="tilt___azimuth"--><!--ForeHelp.EndHotspot--><A HREF="Tilt___Azimuth.html" CLASS="rvts13">Click</A> cell to set value. The following dialog opens:</P>
+<P><IMG SRC="tilt.JPG" WIDTH="435" HEIGHT="376" ALIGN="BASELINE" ALT="tilt.JPG" BORDER="0"></P>
+<P><B>Orientation (Azimuth)</B> - Surface orientation (North = 0, South = 180, West = 270, East = 90). <!--ForeHelp.Hotspot JUMP="tilt___azimuth"--><!--ForeHelp.EndHotspot--><A HREF="Tilt___Azimuth.html" CLASS="rvts4">Click</A> cell to set value. The following dialog opens:</P>
+<P><IMG SRC="Azimuth%20Dial.JPG" WIDTH="438" HEIGHT="376" ALIGN="BASELINE" ALT="Azimuth%20Dial.JPG" BORDER="0"></P>
+<P><B><U><SPAN  STYLE="color: #ff0000; ">NOTE:</SPAN></U></B><B><SPAN  STYLE="color: #ff0000; "> Orientation of Walls, Roofs and Floors are relative to the building orientation.  Any value other than zero for the building orientation will rotate all Walls, Roofs and Floors correspondingly during calculation.</SPAN></B></P>
+<P> </P>
+<P><B><U>Miscellaneous</U></B></P>
+<P>The following are not user editable and are provided for information only.  The defaults are set by the Application.</P>
+<P><B>Gnd Refl</B> - Ground Reflectance is the solar reflectance of the ground.</P>
+<P><B>Infl Coef</B> - Infiltration Coefficient is the infiltration flow coefficient used to compute the infiltration resulting from cracks in a wall.</P>
+<P><B>Outside Emiss</B> - Outside Emissivity is the Emissivity of the exterior side of the wall.</P>
+<P><B>Inside Vis Refl</B> - Inside Visible Reflection is the fraction of light reflected by the interior side of the surface.</P>
+<P><B>Inside Sol Abs</B> - Inside Solar Absorbance is the fraction of radiation absorbed by the interior side of the surface.  Radiation may fall on an interior surface through fenestration placed on other surfaces (eg. Sunshine falling on floors through a  window or skylight).</P>
+<P> </P>
+<P><!--ForeHelp.Hotspot JUMP="forms"--><!--ForeHelp.EndHotspot--><A HREF="Forms.html" CLASS="rvts4">Related Topics</A>                <!--ForeHelp.Hotspot JUMP="energygauge_flacom"--><!--ForeHelp.EndHotspot--><A HREF="EnergyGauge_FlaCom.html"><IMG SRC="HOME.jpg" WIDTH="30" HEIGHT="36" ALIGN="BASELINE" ALT="HOME.jpg" BORDER="0"></A></P></DIV>
+<P> </P></DIV></DIV>
+</BODY></HTML>

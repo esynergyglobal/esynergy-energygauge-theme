@@ -1,0 +1,76 @@
+     #FHNonScroll { background-color: #ffffff; padding-left: 6px ; padding-right: 6px ; padding-top: 6px ;  z-index: 2;  visibility: visible;  left: 0;  top: 0;  width: 100%;  }
+     #FHScroll { padding-left: 10px ; padding-right: 10px ; padding-top: 10px ; padding-bottom: 10px ;  left: 0;  top: 0px;  z-index: 1;  background-repeat: no-repeat;  background-position: bottom right;  }
+     a.rvts10 { color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts10:hover { color: #ff0000;  }
+     a.rvts11 { color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts11:hover { color: #ff0000;  }
+     a.rvts12 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts12:hover { color: #0000ff;  }
+     a.rvts13 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts13:hover { color: #0000ff;  }
+     a.rvts14 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts14:hover { color: #0000ff;  }
+     a.rvts15 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts15:hover { color: #0000ff;  }
+     a.rvts16 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts16:hover { color: #0000ff;  }
+     a.rvts17 { text-decoration: underline ; color: #0000ff;  }
+     a.rvts17:hover { color: #0000ff;  }
+     a.rvts18 { text-decoration: underline ; color: #0000ff;  }
+     a.rvts18:hover { color: #0000ff;  }
+     a.rvts2 { text-decoration: underline ; color: #0000ff;  }
+     a.rvts2:hover { color: #ff0000;  }
+     a.rvts3 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts3:hover { color: #ff0000;  }
+     a.rvts4 { color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts4:hover { color: #ff0000;  }
+     a.rvts5 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts5:hover { color: #ff0000;  }
+     a.rvts6 { color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts6:hover { color: #ff0000;  }
+     a.rvts7 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts7:hover { color: #ff0000;  }
+     a.rvts8 { font-size: 14pt ; font-style: italic; text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     a.rvts8:hover { color: #0000ff;  }
+     a.rvts9 { text-decoration: underline ; color: #0000ff;  }
+     a.rvts9:hover { color: #ff0000;  }
+     .BannerBase { font-size: 12pt ; font-weight: bold; margin: 0pt  1px  0pt  0pt ; font-family: Arial,sans-serif;  fhname: Banner Base; }
+     .Base { font-size: 10pt ; margin: 0pt  1px  0pt  0pt ; font-family: Arial,sans-serif;  }
+     .Bullet1 { font-size: 10pt ; font-family: Arial,sans-serif;  }
+     .Bullet2 { font-size: 10pt ; margin: 0pt  0pt  0pt  18pt ; text-indent: -18pt ; font-family: Arial,sans-serif;  }
+     .Bullet3 { font-size: 10pt ; margin: 0pt  0pt  0pt  18pt ; text-indent: -18pt ; font-family: Arial,sans-serif;  }
+     .Bullet4 { font-size: 10pt ; font-family: Arial,sans-serif;  }
+     .Bullet5 { font-size: 10pt ; font-family: Arial,sans-serif;  }
+     .ButtonBar { font-size: 6pt ; font-weight: bold; margin: 0pt  0pt  0pt  -0.1in ; font-family: Arial,sans-serif;  fhname: Button Bar; }
+     .FHFlyoverPopupStyle { margin: 0pt  1px  0pt  0pt ; line-height: 18px ; border: medium solid #110000; background-color: #d5e5fa; padding-left: 5px ; padding-right: 5px ; padding-top: 5px ; padding-bottom: 5px ; font-family: normal,sans-serif;  position: absolute;  top: -500px;  left: 0;  visibility: hidden;  z-index: 100;  width: 200px;  filter: progid :DXImageTransform.Microsoft.Shadow(color :gray ,direction :135 ,Strength :5);  }
+     .Hyperlink { font-size: 12pt ; text-decoration: underline ; color: #0000ff; font-family: Times New Roman,sans-serif;  fhtype: character; }
+     .Normal { font-size: 12pt ; margin: 5pt  0pt  5pt  0pt ; font-family: Times New Roman,sans-serif;  }
+     .Number1 { font-size: 10pt ; font-family: Arial,sans-serif;  }
+     .Number2 { font-size: 10pt ; font-family: Arial,sans-serif;  }
+     .Number3 { font-size: 10pt ; font-family: Arial,sans-serif;  }
+     .Number4 { font-size: 10pt ; font-family: Arial,sans-serif;  }
+     .Number5 { font-size: 10pt ; font-family: Arial,sans-serif;  }
+     .rvps2 { margin: 7px  0px  7px  0px ;  }
+     .rvps3 { margin: 0px  0px  0px  52px ;  }
+     .rvps4 { margin: 0px  0px  0px  52px ;  }
+     .rvps5 { text-align: justify; margin: 4px  0px  0px  72px ;  }
+     .rvps6 { margin: 0px  1px  0px  52px ;  }
+     span.rvts1 { font-family: Arial Unicode MS,sans-serif;  }
+     span.rvts10 { color: #ff0000;  }
+     span.rvts11 { font-style: italic; color: #ff0000;  }
+     span.rvts12 { color: #000080;  }
+     span.rvts13 { font-size: 16pt ;  }
+     span.rvts14 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     span.rvts15 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     span.rvts16 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     span.rvts17 { text-decoration: underline ; color: #0000ff;  }
+     span.rvts18 { text-decoration: underline ; color: #0000ff;  }
+     span.rvts2 { font-family: Verdana,sans-serif;  }
+     span.rvts3 { font-family: Verdana,sans-serif;  }
+     span.rvts4 { font-weight: bold;  }
+     span.rvts5 { text-decoration: underline ; color: #0000ff; font-family: Verdana,sans-serif;  }
+     span.rvts6 { font-weight: bold; text-decoration: underline ;  }
+     span.rvts7 { font-weight: bold; color: #0000ff;  }
+     span.rvts8 { font-weight: bold; color: #000080;  }
+     span.rvts9 { text-decoration: underline ; color: #0000ff;  }
+     table { font-size: 10pt ; font-family: Arial,sans-serif;  }

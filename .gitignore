@@ -1,0 +1,17 @@
+# Theme zip artifacts (generated, not source)
+*.zip
+
+# macOS / Windows junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Large doc assets (PDFs, CHM, etc.) — keep source CSS/JS/PHP only
+# Uncomment if docs folder grows too large to version
+# energygauge/assets/docs/
