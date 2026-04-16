@@ -48,3 +48,35 @@ energygauge/
 
 - **EnergyGauge Summit FlaCom** — $389 — `/product/energygauge-summit-flacom/`
 - **EnergyGauge Summit Premier** — $799 — `/product/energygauge-summit-premier/`
+
+## ACF (Advanced Custom Fields)
+
+Certain page templates pull their editable text/prices/URLs from ACF fields instead
+of hardcoding them, so content can be updated from the WordPress admin without a
+theme re-upload. Field definitions live in `energygauge/acf-json/` and are loaded
+via the `acf/settings/load_json` filter in `functions.php`.
+
+**Currently using ACF:**
+- `page-summit.php` — hero section + FlaCom/Premier pricing cards
+
+### First-time setup after uploading the theme
+
+1. Install the **Advanced Custom Fields** plugin (free version is fine).
+2. In WP admin, go to **ACF > Field Groups**.
+3. Look for a "Sync available" notice at the top. Click **Review sync** → **Sync changes**
+   to import the field groups defined in `acf-json/` into the database.
+4. Edit any page that uses the template (e.g. Summit) — the field inputs appear
+   below the normal content editor.
+
+### Fallback behavior
+
+Every ACF field read in the templates uses the `eg_field($key, $default)` helper
+defined in `functions.php`. If ACF is not installed, the plugin is deactivated, or
+a field is left blank, the template falls back to the hardcoded default text — so
+the site never displays broken/empty content.
+
+### Adding new field groups
+
+1. Define the group in `energygauge/acf-json/group_<name>.json`.
+2. Update the relevant template to call `eg_field('field_name', 'fallback')`.
+3. After the theme is uploaded, click **Sync** in ACF > Field Groups.

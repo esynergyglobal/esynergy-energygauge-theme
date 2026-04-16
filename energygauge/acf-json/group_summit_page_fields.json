@@ -1,0 +1,166 @@
+{
+    "key": "group_summit_page_fields",
+    "title": "Summit Page Content",
+    "fields": [
+        {
+            "key": "field_summit_hero_tab",
+            "label": "Hero Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_summit_hero_eyebrow",
+            "label": "Eyebrow Text",
+            "name": "summit_hero_eyebrow",
+            "type": "text",
+            "instructions": "Small text displayed above the main headline (e.g. \"Commercial Buildings\").",
+            "default_value": "Commercial Buildings"
+        },
+        {
+            "key": "field_summit_hero_title_pre",
+            "label": "Headline (first part)",
+            "name": "summit_hero_title_pre",
+            "type": "text",
+            "instructions": "The normal-colored portion of the headline.",
+            "default_value": "EnergyGauge"
+        },
+        {
+            "key": "field_summit_hero_title_highlight",
+            "label": "Headline Highlight",
+            "name": "summit_hero_title_highlight",
+            "type": "text",
+            "instructions": "The emphasized/colored word at the end of the headline.",
+            "default_value": "Summit"
+        },
+        {
+            "key": "field_summit_hero_description",
+            "label": "Description",
+            "name": "summit_hero_description",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "Easy-to-use software for Building Energy Code Compliance, Energy Analysis, and Rating. Available in two versions — FlaCom and Premier. Choose the product that best fits your compliance needs using the comparison below."
+        },
+        {
+            "key": "field_summit_hero_cta_text",
+            "label": "Button Text",
+            "name": "summit_hero_cta_text",
+            "type": "text",
+            "default_value": "Buy Now"
+        },
+        {
+            "key": "field_summit_hero_cta_url",
+            "label": "Button URL",
+            "name": "summit_hero_cta_url",
+            "type": "url",
+            "instructions": "Where the Buy Now button takes visitors.",
+            "default_value": "/shop/"
+        },
+        {
+            "key": "field_summit_flacom_tab",
+            "label": "FlaCom Pricing",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_flacom_price",
+            "label": "Price",
+            "name": "flacom_price",
+            "type": "text",
+            "instructions": "Include the currency symbol (e.g. \"$389\").",
+            "default_value": "$389"
+        },
+        {
+            "key": "field_flacom_period",
+            "label": "Period Label",
+            "name": "flacom_period",
+            "type": "text",
+            "default_value": "1-year license only"
+        },
+        {
+            "key": "field_flacom_buy_url",
+            "label": "Buy Button URL",
+            "name": "flacom_buy_url",
+            "type": "url",
+            "default_value": "/product/energygauge-summit-flacom/"
+        },
+        {
+            "key": "field_summit_premier_tab",
+            "label": "Premier Pricing",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_premier_original_price",
+            "label": "Original Price (strikethrough)",
+            "name": "premier_original_price",
+            "type": "text",
+            "instructions": "Shown with a strikethrough above the sale price. Leave blank to hide.",
+            "default_value": "$949"
+        },
+        {
+            "key": "field_premier_sale_price",
+            "label": "Sale / Current Price",
+            "name": "premier_sale_price",
+            "type": "text",
+            "default_value": "$799"
+        },
+        {
+            "key": "field_premier_period",
+            "label": "Period Label",
+            "name": "premier_period",
+            "type": "text",
+            "default_value": "1-year license (promo)"
+        },
+        {
+            "key": "field_premier_3yr_original",
+            "label": "3-Year Original Price (strikethrough)",
+            "name": "premier_3yr_original",
+            "type": "text",
+            "instructions": "Shown with a strikethrough. Leave blank to hide.",
+            "default_value": "$2,562"
+        },
+        {
+            "key": "field_premier_3yr_sale",
+            "label": "3-Year Current Price",
+            "name": "premier_3yr_sale",
+            "type": "text",
+            "default_value": "$2,157"
+        },
+        {
+            "key": "field_premier_buy_url",
+            "label": "Buy Button URL",
+            "name": "premier_buy_url",
+            "type": "url",
+            "default_value": "/product/energygauge-summit-premier/"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-summit.php"
+            }
+        ],
+        [
+            {
+                "param": "post_name",
+                "operator": "==",
+                "value": "summit"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Editable content fields for the Summit product page. Managed in the theme at energygauge/acf-json/ — sync from ACF > Field Groups.",
+    "show_in_rest": 0
+}

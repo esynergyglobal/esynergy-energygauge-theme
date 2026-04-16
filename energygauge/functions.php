@@ -64,6 +64,33 @@ function eg_docs_url($path) {
     return get_template_directory_uri() . '/assets/docs/' . $path;
 }
 
+// Helper: safely read ACF field with fallback to default if ACF is unavailable,
+// the field is empty, or the field doesn't exist on this post.
+function eg_field($key, $default = '') {
+    if (!function_exists('get_field')) {
+        return $default;
+    }
+    $value = get_field($key);
+    if ($value === '' || $value === null || $value === false) {
+        return $default;
+    }
+    return $value;
+}
+
+// Register the theme's acf-json/ directory so ACF loads field group definitions
+// from version-controlled JSON files instead of relying on the database alone.
+add_filter('acf/settings/load_json', function($paths) {
+    $paths[] = get_template_directory() . '/acf-json';
+    return $paths;
+});
+
+// Also save field group changes made in the admin UI back into the same folder
+// so they stay in sync with the theme (only takes effect if the folder is writable).
+add_filter('acf/settings/save_json', function($path) {
+    $theme_path = get_template_directory() . '/acf-json';
+    return is_writable($theme_path) ? $theme_path : $path;
+});
+
 // Disable admin bar on frontend for cleaner look
 add_filter('show_admin_bar', '__return_false');
 
