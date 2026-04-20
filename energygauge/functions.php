@@ -10,8 +10,19 @@ function energygauge_setup() {
     add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption']);
 
     register_nav_menus([
-        'primary'       => __('Primary Navigation', 'energygauge'),
-        'documentation' => __('Support Page Documentation List', 'energygauge'),
+        'primary'         => __('Primary Navigation (header)', 'energygauge'),
+        'documentation'   => __('Support Page Documentation List', 'energygauge'),
+        'footer-products' => __('Footer – Products column', 'energygauge'),
+        'footer-support'  => __('Footer – Support column', 'energygauge'),
+        'footer-company'  => __('Footer – Company column', 'energygauge'),
+    ]);
+
+    // Site Identity: allow logo upload via Appearance > Customize > Site Identity.
+    add_theme_support('custom-logo', [
+        'height'      => 60,
+        'width'       => 240,
+        'flex-height' => true,
+        'flex-width'  => true,
     ]);
 
     // WooCommerce support
@@ -63,6 +74,86 @@ add_action('wp_head', 'energygauge_inline_css', 20);
 // Helper: get docs URL
 function eg_docs_url($path) {
     return get_template_directory_uri() . '/assets/docs/' . $path;
+}
+
+// Render the site brand. Uses the custom logo from Site Identity if uploaded,
+// otherwise falls back to the original "eG + EnergyGauge by eSynergy Global" mark.
+function eg_render_brand() {
+    $home = esc_url(home_url('/'));
+    if (function_exists('has_custom_logo') && has_custom_logo()) {
+        $logo_id   = get_theme_mod('custom_logo');
+        $logo_src  = wp_get_attachment_image_src($logo_id, 'full');
+        $site_name = get_bloginfo('name');
+        if ($logo_src) {
+            echo '<a href="' . $home . '" class="nav-brand nav-brand--logo" rel="home">';
+            echo '  <img src="' . esc_url($logo_src[0]) . '" alt="' . esc_attr($site_name) . '" class="nav-brand-logo-img">';
+            echo '</a>';
+            return;
+        }
+    }
+    // Fallback: original hardcoded brand mark.
+    echo '<a href="' . $home . '" class="nav-brand" rel="home">';
+    echo '  <div class="nav-logo-mark">eG</div>';
+    echo '  <div class="nav-brand-text">';
+    echo '    <span class="nav-brand-primary">' . esc_html(get_bloginfo('name') ?: 'EnergyGauge') . '</span>';
+    $tagline = get_bloginfo('description');
+    if ($tagline) {
+        echo '    <span class="nav-brand-sub">' . esc_html($tagline) . '</span>';
+    } else {
+        echo '    <span class="nav-brand-sub">by eSynergy Global</span>';
+    }
+    echo '  </div>';
+    echo '</a>';
+}
+
+// Render the primary nav links. Uses the menu assigned to the "primary" location
+// if one exists, otherwise falls back to the hardcoded Summit/Support list.
+function eg_render_primary_nav_links() {
+    if (has_nav_menu('primary')) {
+        wp_nav_menu([
+            'theme_location' => 'primary',
+            'container'      => false,
+            'items_wrap'     => '%3$s', // strip <ul>, we render it manually
+            'fallback_cb'    => false,
+            'depth'          => 1,
+            'walker'         => new EG_Primary_Nav_Walker(),
+        ]);
+        return;
+    }
+    // Fallback
+    echo '<li><a href="' . esc_url(home_url('/summit/')) . '" class="' . (is_page('summit') || is_front_page() ? 'active' : '') . '">Summit</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/support/')) . '" class="' . (is_page('support') ? 'active' : '') . '">Support</a></li>';
+}
+
+// Minimal walker that renders each menu item as <li><a>Label</a></li> with an
+// "active" class on the current page — matching the existing CSS.
+class EG_Primary_Nav_Walker extends Walker_Nav_Menu {
+    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $classes = array_filter((array) $item->classes);
+        $is_current = in_array('current-menu-item', $classes, true) || in_array('current_page_item', $classes, true);
+        $output .= '<li><a href="' . esc_url($item->url) . '"' . ($is_current ? ' class="active"' : '') . '>' . esc_html($item->title) . '</a></li>';
+    }
+    public function end_el(&$output, $item, $depth = 0, $args = null) {
+        // closing handled in start_el
+    }
+}
+
+// Render a footer-column menu. Accepts the location slug and a fallback callback
+// (closure) that echoes the hardcoded <ul> if no menu is assigned yet.
+function eg_render_footer_menu($location, $fallback) {
+    if (has_nav_menu($location)) {
+        wp_nav_menu([
+            'theme_location' => $location,
+            'container'      => false,
+            'items_wrap'     => '<ul>%3$s</ul>',
+            'fallback_cb'    => false,
+            'depth'          => 1,
+        ]);
+        return;
+    }
+    if (is_callable($fallback)) {
+        $fallback();
+    }
 }
 
 // Helper: safely read ACF field with fallback to default if ACF is unavailable,

@@ -136,6 +136,37 @@
             "name": "premier_buy_url",
             "type": "url",
             "default_value": "/product/energygauge-summit-premier/"
+        },
+        {
+            "key": "field_summit_media_tab",
+            "label": "Video & Support CTA",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_summit_vimeo_url",
+            "label": "Vimeo Embed URL",
+            "name": "summit_vimeo_url",
+            "type": "url",
+            "instructions": "The Vimeo player URL for the demo video (e.g. https://player.vimeo.com/video/29380350). Leave blank to hide the video section.",
+            "default_value": "https://player.vimeo.com/video/29380350"
+        },
+        {
+            "key": "field_summit_support_cta_text",
+            "label": "\"Get Support\" Button Text",
+            "name": "summit_support_cta_text",
+            "type": "text",
+            "instructions": "Text on the button in the Free Technical Support feature card.",
+            "default_value": "Get Support"
+        },
+        {
+            "key": "field_summit_support_cta_url",
+            "label": "\"Get Support\" Button URL",
+            "name": "summit_support_cta_url",
+            "type": "url",
+            "instructions": "Where the button takes visitors. Default: the site's Support page.",
+            "default_value": "/support/"
         }
     ],
     "location": [

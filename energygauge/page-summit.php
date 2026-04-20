@@ -7,11 +7,11 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
 ?>
 
 <!-- HERO -->
-<section class="hero animate-fade-up" style="padding:96px 24px 56px;">
+<section class="hero animate-fade-up" style="padding:56px 24px 32px;">
   <div class="hero-inner">
-    <div class="hero-eyebrow"><?php echo esc_html(eg_field('summit_hero_eyebrow', 'Commercial Buildings')); ?></div>
-    <h1 style="font-size:clamp(32px,4vw,52px);"><?php echo esc_html(eg_field('summit_hero_title_pre', 'EnergyGauge')); ?> <span><?php echo esc_html(eg_field('summit_hero_title_highlight', 'Summit')); ?></span></h1>
-    <p class="hero-sub"><?php echo esc_html(eg_field('summit_hero_description', 'Easy-to-use software for Building Energy Code Compliance, Energy Analysis, and Rating. Available in two versions — FlaCom and Premier. Choose the product that best fits your compliance needs using the comparison below.')); ?></p>
+    <div class="hero-eyebrow" style="margin-bottom:12px;"><?php echo esc_html(eg_field('summit_hero_eyebrow', 'Commercial Buildings')); ?></div>
+    <h1 style="font-size:clamp(32px,4vw,52px);margin-bottom:16px;"><?php echo esc_html(eg_field('summit_hero_title_pre', 'EnergyGauge')); ?> <span><?php echo esc_html(eg_field('summit_hero_title_highlight', 'Summit')); ?></span></h1>
+    <p class="hero-sub" style="margin-bottom:0;"><?php echo esc_html(eg_field('summit_hero_description', 'Easy-to-use software for Building Energy Code Compliance, Energy Analysis, and Rating. Available in two versions — FlaCom and Premier. Choose the product that best fits your compliance needs using the comparison below.')); ?></p>
   </div>
 </section>
 
@@ -121,12 +121,14 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
     </div>
 
     <!-- PRODUCT DEMO VIDEO -->
+    <?php $vimeo_url = eg_field('summit_vimeo_url', 'https://player.vimeo.com/video/29380350'); ?>
+    <?php if ($vimeo_url) : ?>
     <div class="video-section animate-fade-up" style="margin-top:64px;">
       <div class="section-eyebrow">See It In Action</div>
       <h2 class="section-title">EnergyGauge Summit Demo</h2>
       <div class="video-embed">
         <iframe
-          src="https://player.vimeo.com/video/29380350"
+          src="<?php echo esc_url($vimeo_url); ?>"
           title="EnergyGauge Summit demo"
           frameborder="0"
           allow="autoplay; fullscreen; picture-in-picture"
@@ -135,6 +137,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         </iframe>
       </div>
     </div>
+    <?php endif; ?>
 
     <!-- COMPETITIVE COMPARISON -->
     <div class="section-eyebrow animate-fade-up" style="margin-top:64px;">Why EnergyGauge</div>
@@ -226,7 +229,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         <p style="font-size:12px;color:var(--gray-400);margin-top:12px;"><sup>&dagger;</sup> Not available in 2020 (7th ed)</p>
       </div>
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/one-button-compliance.jpg'); ?>" alt="One-button compliance calculation" loading="lazy">
+        <img class="feature-card-image feature-card-image--photo" src="<?php echo esc_url($img_base . '/one-button-compliance.jpg'); ?>" alt="One-button compliance calculation" loading="lazy">
         <h4>One Button Compliance</h4>
         <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Automatically generates reference and baseline buildings.</p>
         <ul>
@@ -277,7 +280,7 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
         </ul>
       </div>
       <div class="feature-card">
-        <img class="feature-card-image" src="<?php echo esc_url($img_base . '/libraries.png'); ?>" alt="Predefined libraries" loading="lazy">
+        <img class="feature-card-image feature-card-image--photo" src="<?php echo esc_url($img_base . '/libraries.png'); ?>" alt="Predefined libraries" loading="lazy">
         <h4>Predefined &amp; Customizable Libraries</h4>
         <p style="color:var(--gray-600);font-size:14px;margin:-4px 0 12px;">Save time, or create your own:</p>
         <ul>
@@ -296,7 +299,12 @@ $img_base = get_template_directory_uri() . '/assets/images/features';
           <li>Free online video tutorials</li>
           <li>No-cost updates during license period</li>
         </ul>
-        <a class="btn btn-outline btn-sm" href="<?php echo esc_url(home_url('/support/')); ?>" style="margin-top:12px;">Get Support</a>
+        <?php
+        $support_cta_text = eg_field('summit_support_cta_text', 'Get Support');
+        $support_cta_url  = eg_field('summit_support_cta_url', home_url('/support/'));
+        if ($support_cta_text && $support_cta_url) : ?>
+          <a class="btn btn-outline btn-sm" href="<?php echo esc_url($support_cta_url); ?>" style="margin-top:12px;"><?php echo esc_html($support_cta_text); ?></a>
+        <?php endif; ?>
       </div>
     </div>
   </div>

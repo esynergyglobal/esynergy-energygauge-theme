@@ -11,21 +11,14 @@
 <!-- NAV -->
 <div class="nav-wrap">
   <nav class="nav">
-    <a href="<?php echo home_url('/'); ?>" class="nav-brand">
-      <div class="nav-logo-mark">eG</div>
-      <div class="nav-brand-text">
-        <span class="nav-brand-primary">EnergyGauge</span>
-        <span class="nav-brand-sub">by eSynergy Global</span>
-      </div>
-    </a>
+    <?php eg_render_brand(); ?>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="<?php echo home_url('/summit/'); ?>" class="<?php echo is_page('summit') || is_front_page() ? 'active' : ''; ?>">Summit</a></li>
-      <li><a href="<?php echo home_url('/support/'); ?>" class="<?php echo is_page('support') ? 'active' : ''; ?>">Support</a></li>
-      <li><a href="<?php echo home_url('/cart/'); ?>" class="nav-cart" aria-label="View Cart">&#128722;</a></li>
-      <li><a href="<?php echo home_url('/summit/'); ?>" class="nav-cta">Buy Now</a></li>
+      <?php eg_render_primary_nav_links(); ?>
+      <li><a href="<?php echo esc_url(home_url('/cart/')); ?>" class="nav-cart" aria-label="View Cart">&#128722;</a></li>
+      <li><a href="<?php echo esc_url(home_url('/summit/')); ?>" class="nav-cta">Buy Now</a></li>
     </ul>
   </nav>
 </div>
